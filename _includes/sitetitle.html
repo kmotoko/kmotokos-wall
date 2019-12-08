@@ -16,4 +16,4 @@
   {%- endif -%}
 {%- endcapture -%}
 
-<a class="{{ title_class }}" href="{%- include link.html path="index" -%}">{{ title }}</a>
+<a class="{{ title_class }}" href="{{ '/' | relative_url }}">{{ title }}</a>

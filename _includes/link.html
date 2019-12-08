@@ -1,3 +1,0 @@
-{%- assign objects = site.pages | where_exp:"p","p.path contains include.path" -%}
-{%- assign object = objects | first -%}
-{{ object.url }}
