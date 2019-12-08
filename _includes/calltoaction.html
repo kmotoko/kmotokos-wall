@@ -1,0 +1,20 @@
+{%- assign plang = page.lang | default: site.langs[0] | default: "en" -%}
+<div class="colored-block">
+  {%- assign cta = site.data.academic_strings.cta -%}
+  {%- if page.layout == "home" or page.layout == "archive" -%}
+    {{ cta.like["en"] | escape }}
+  {%- else if page.layout == "post" -%}
+    {{ cta.post["en"] | escape }}
+  {%- else -%}
+  {%- endif -%}
+
+  {{ cta.rss["en"][0] }}
+  <a href="/feed.xml">{{ cta.rss["en"][1] }}</a>
+  {{ cat.rss["en"][2]}}
+
+  {%- if site.twitter_username -%}
+    {{ cta.twitter["en"][0] }}
+    <a href="https://twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a>
+    {{ cta.twitter["en"][1] }}
+  {%- endif -%}.
+</div>
