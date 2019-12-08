@@ -9,7 +9,7 @@
 
         {%- if site.author_display -%}
         <span class="author">
-          {{ strings.by["en"] }}
+          {{ strings.by["en"] }}&nbsp;
           {%- if site.author_website -%}
           <a target="_blank" href="{%- include processor.html value=site.author_website -%}">{{ site.author }}</a>
           {%- else -%}
@@ -49,7 +49,7 @@
       {%- assign oldest_post = site.posts reversed | first -%}
       {%- assign oldest = oldest_post.date | date: "%Y" -%}
       {%- assign newest = site.time | date: "%Y" -%}
-      ({%- if oldest != newest -%}{{ oldest }}-{%- endif -%}{{ newest }})
+      ({%- if oldest != newest -%}{{ oldest }}-{%- endif -%}{{ newest }})&nbsp;
       {%- if site.author and site.author_display -%}
         {{ strings.legal["en"][0] }}
         <a target="_blank" href="{%- include processor.html value=site.author_website -%}">{{ site.author }}</a>

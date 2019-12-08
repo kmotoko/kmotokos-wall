@@ -1,15 +1,14 @@
 <div class="colored-block">
   {%- assign cta = site.data.academic_strings.cta -%}
   {%- if page.layout == "home" or page.layout == "archive" -%}
-    {{ cta.like["en"] | escape }}
+    {{ cta.like["en"] | escape }}&nbsp;
   {%- else if page.layout == "post" -%}
-    {{ cta.post["en"] | escape }}
+    {{ cta.post["en"] | escape }}&nbsp;
   {%- else -%}
   {%- endif -%}
 
   {{ cta.rss["en"][0] }}
   <a href="/feed.xml">{{ cta.rss["en"][1] }}</a>
-  {{ cta.rss["en"][2]}}
 
   {%- if site.twitter_username -%}
     {{ cta.twitter["en"][0] }}
