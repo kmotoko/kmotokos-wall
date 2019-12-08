@@ -18,7 +18,7 @@ layout: default
           {%- include date.html date=page.date -%}
         </time>
         {%- include last_modified_at.html object=page -%}
-        {%- if page.author -%} • 
+        {%- if page.author -%} •
           <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
         {%- endif -%}
       </p>
@@ -34,17 +34,22 @@ layout: default
 
   {%- if site.shortbio -%}
   <div class="post-author">
-    {%- if site.github_username -%}
-      <a href="{%- include processor.html value=site.author_website -%}">
-        <img class="user-picture" src="https://github.com/{{ site.github_username }}.png" alt="{{ site.author }}">
-      </a>
+    {%- if site.author_image and site.author_website -%}
+    <a href="{%- include processor.html value=site.author_website -%}">
+      ​<picture>
+        <source srcset="{{- '/assets/img/' | append: site.author_image | append: '.svg' | relative_url -}}" type="image/svg+xml">
+        <source srcset="{{- '/assets/img/' | append: site.author_image | append: '.webp' | relative_url -}}" type="image/webp">
+        <source srcset="{{- '/assets/img/' | append: site.author_image | append: '.png' | relative_url -}}" type="image/png">
+        <img src="{{- '/assets/img/' | append: site.author_image | append: '.png' | relative_url -}}" class="user-picture" alt="{{ site.author }}">
+      </picture>
+    </a>
     {%- endif -%}
-      <ul class="user-info">
-        <li class="user-name">
-          {{ site.author }}
-        </li>
-        <li class="user-shortbio">{%- include processor.html value=site.shortbio -%}</li>
-      </ul>
+    <ul class="user-info">
+      <li class="user-name">
+        {{ site.author }}
+      </li>
+      <li class="user-shortbio">{%- include processor.html value=site.shortbio -%}</li>
+    </ul>
   </div>
   {%- endif -%}
 
