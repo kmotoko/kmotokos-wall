@@ -1,6 +1,6 @@
-- name: Home
-  link: /
+- name: "Home"
+  link: "/"
   invisible: false
-- name: Articles
-  link: /articles/
+- name: "Articles"
+  link: "/articles/"
   invisible: false

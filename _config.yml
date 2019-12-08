@@ -18,20 +18,20 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: kmotoko's wall
-email: aydincagatay@yandex.com
+title: "kmotoko's wall"
+email: "aydincagatay@yandex.com"
 description: >- # this means to ignore newlines until "baseurl:"
-  Articles about Linux, cyber-security, programming and life.
+  "Articles about Linux, cyber-security, programming and life."
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.kmotoko.com" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: jekyllrb
+# twitter_username: "jekyllrb"
 repo: "websiterepo"
-github_username:  kmotoko
-linkedin_username: aydin-cagatay
+github_username:  "kmotoko"
+linkedin_username: "aydin-cagatay"
 author: "Cagatay Aydin"
 author_display: true
 author_website: "https://www.kmotoko.com"
-author_image: kmotoko-avatar
+author_image: "kmotoko-avatar"
 shortbio: "stuff about me"
 archive_permalink: "/archive"
 langs: ["en"]
