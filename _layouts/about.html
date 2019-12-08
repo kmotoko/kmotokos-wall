@@ -5,8 +5,13 @@ layout: default
 <div class="about-col-wrapper">
   <div class="about-col about-col-1">
 
-    {%- if site.github_username -%}
-    <img class="user-picture" src="https://github.com/{{ site.github_username }}.png" alt="{{ site.author }}">
+    {%- if site.author_image -%}
+    ​<picture>
+      <source srcset="{{- '/assets/img/' | append: site.author_image | append: '.svg' | relative_url -}}" type="image/svg+xml">
+      <source srcset="{{- '/assets/img/' | append: site.author_image | append: '.webp' | relative_url -}}" type="image/webp">
+      <source srcset="{{- '/assets/img/' | append: site.author_image | append: '.png' | relative_url -}}" type="image/png">
+      <img src="{{- '/assets/img/' | append: site.author_image | append: '.png' | relative_url -}}" class="user-picture" alt="{{ site.author }}">
+    </picture>
     {%- endif -%}
 
     <ul class="contact-list">
