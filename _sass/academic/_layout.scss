@@ -488,6 +488,10 @@
 
 .post-content {
   padding-bottom: $spacing-unit;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 }
 
 .page-heading {
@@ -547,6 +551,16 @@
 
   .post-thumbnail {
     margin-top: -20%;
+  }
+}
+
+.pagination {
+  margin-top: $spacing-unit / 4;
+  margin-bottom: $spacing-unit / 4;
+
+  a, em, span {
+    margin-left: 3px;
+    margin-right: 3px;
   }
 }
 
@@ -627,6 +641,10 @@
 
 .post-content {
   padding-bottom: $spacing-unit / 2;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
 
   .footnotes {
     @include size(small);
