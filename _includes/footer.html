@@ -1,18 +1,17 @@
-{%- assign plang = page.lang | default: site.langs[0] | default: "en" -%}
-{%- assign i18n = site.data.academic_i18n -%}
+{%- assign strings = site.data.academic_strings -%}
 <footer class="site-footer">
 
   <div class="wrapper">
 
       <ul class="footer-col footer-col-1">
         <li>
-          {%- include _i18n/sitetitle.html -%}
+          {%- include sitetitle.html -%}
 
         {%- if site.author_display -%}
         <span class="author">
-          {{ i18n.by["en"] }}
+          {{ strings.by["en"] }}
           {%- if site.author_website -%}
-          <a target="_blank" href="{%- include _i18n/i18n.html value=site.author_website -%}">{{ site.author }}</a>
+          <a target="_blank" href="{%- include processor.html value=site.author_website -%}">{{ site.author }}</a>
           {%- else -%}
           {{ site.author }}
           {%- endif -%}
@@ -21,7 +20,7 @@
         {%- endif -%}
 
         {%- if site.description -%}
-        <li>{%- include _i18n/i18n.html value=site.description -%}</li>
+        <li>{%- include processor.html value=site.description -%}</li>
         {%- endif -%}
 
       </ul>
@@ -37,11 +36,6 @@
 
     <div class="bottom">
 
-      {%- assign nblangs = site.langs | size -%}
-      {%- if nblangs > 1 -%}
-        {%- include _i18n/lang_selector.html -%}
-      {%- endif -%}
-
       <div class="tech">
         <a target="_blank" href="https://jekyllrb.com/">Jekyll</a> + <a target="_blank" href="https://github.com/gaalcaras/academic">Academic</a>
         {%- if site.repo -%}
@@ -51,17 +45,17 @@
 
       <div class="legal">
       {%- if site.cc == null -%}©{%- endif -%}
-      {%- include _i18n/sitetitle.html -%}
+      {%- include sitetitle.html -%}
       {%- assign oldest_post = site.posts reversed | first -%}
       {%- assign oldest = oldest_post.date | date: "%Y" -%}
       {%- assign newest = site.time | date: "%Y" -%}
       ({%- if oldest != newest -%}{{ oldest }}-{%- endif -%}{{ newest }})
       {%- if site.author and site.author_display -%}
-        {{ i18n.legal["en"][0] }}
-        <a target="_blank" href="{%- include _i18n/i18n.html value=site.author_website -%}">{{ site.author }}</a> 
+        {{ strings.legal["en"][0] }}
+        <a target="_blank" href="{%- include processor.html value=site.author_website -%}">{{ site.author }}</a>
       {%- endif -%}
       {%- if site.cc -%}
-        {{ i18n.legal["en"][1] }}
+        {{ strings.legal["en"][1] }}
         <a target="_blank" rel="license" href="https://creativecommons.org/licenses/{{ site.cc }}/4.0/" class="cc-licence">
           CC {{ site.cc }}
         </a>
@@ -77,4 +71,3 @@
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 {%- endif -%}
-

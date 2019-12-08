@@ -10,10 +10,10 @@
 
 {%- capture title -%}
   {%- if site.title_html -%}
-    {%- include _i18n/i18n.html value=site.title_html escape=false -%}
+    {%- include processor.html value=site.title_html escape=false -%}
   {%- else -%}
-    {%- include _i18n/i18n.html value=site.title -%}
+    {%- include processor.html value=site.title -%}
   {%- endif -%}
 {%- endcapture -%}
 
-<a class="{{ title_class }}" href="{%- include _i18n/link.html path="index" -%}">{{ title }}</a>
+<a class="{{ title_class }}" href="{%- include link.html path="index" -%}">{{ title }}</a>

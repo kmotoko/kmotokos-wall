@@ -330,9 +330,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/gaalca
 ## License
 
 The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-## Check
-i18n
-lang
-site.langs
-plang

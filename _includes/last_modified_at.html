@@ -1,4 +1,3 @@
-{%- assign plang = page.lang | default: site.langs[0] | default: "en" -%}
 {%- assign object = include.object -%}
 
 {%- if object.last_modified_at -%}
@@ -16,7 +15,7 @@
     {%- endif -%}
 
     {{ site.data.academic_strings.lastupdated["en"] }}
-    {%- include _i18n/date.html date=object.last_modified_at -%}
+    {%- include date.html date=object.last_modified_at -%}
 
     {%- if site.repo -%}
     </a>

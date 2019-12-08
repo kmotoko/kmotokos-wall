@@ -1,4 +1,3 @@
-{%- assign plang = page.lang | default: site.langs[0] | default: "en" -%}
 <div class="colored-block">
   {%- assign cta = site.data.academic_strings.cta -%}
   {%- if page.layout == "home" or page.layout == "archive" -%}
@@ -10,7 +9,7 @@
 
   {{ cta.rss["en"][0] }}
   <a href="/feed.xml">{{ cta.rss["en"][1] }}</a>
-  {{ cat.rss["en"][2]}}
+  {{ cta.rss["en"][2]}}
 
   {%- if site.twitter_username -%}
     {{ cta.twitter["en"][0] }}
