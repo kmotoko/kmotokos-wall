@@ -9,11 +9,7 @@
 {%- endif -%}
 
 {%- capture title -%}
-  {%- if site.title_html -%}
-    {%- include processor.html value=site.title_html escape=false -%}
-  {%- else -%}
-    {%- include processor.html value=site.title -%}
-  {%- endif -%}
+  {{- site.title | strip_newlines -}}
 {%- endcapture -%}
 
 <a class="{{ title_class }}" href="{{ '/' | relative_url }}">{{ title }}</a>

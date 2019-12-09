@@ -8,21 +8,27 @@ layout: default
   {%- else -%}
   <header class="post-header">
   {%- endif -%}
-    {%- if page.thumbnail -%}
+    {%- if page.thumbnail and page.title -%}
     <img class="post-thumbnail" src="/assets/{{ page.thumbnail }}" alt="{{ page.title | escape }}"/>
     {%- endif -%}
     <div class="wrapper">
+      {%- if page.title -%}
       <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+      {%- endif -%}
       <p class="post-meta">
+        {%- if page.date -%}
         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
           {%- include date.html date=page.date -%}
         </time>
+        {%- endif -%}
         {%- include last_modified_at.html object=page -%}
-        {%- if page.author -%} •
-          <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+        {%- if site.author -%} •
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ site.author }}</span></span>
         {%- endif -%}
       </p>
+      {%- if page.summary -%}
       <h3 class="post-summary">{{ page.summary }}</h3>
+      {%- endif -%}
     </div>
   </header>
 
@@ -32,10 +38,10 @@ layout: default
 
   {%- include calltoaction.html -%}
 
-  {%- if site.shortbio -%}
+  {%- if site.shortbio and site.author -%}
   <div class="post-author">
     {%- if site.author_image and site.author_website -%}
-    <a href="{%- include processor.html value=site.author_website -%}">
+    <a href="{{- site.author_website | uri_escape -}}">
       ​<picture>
         <source srcset="{{- '/assets/img/' | append: site.author_image | append: '.svg' | relative_url -}}" type="image/svg+xml">
         <source srcset="{{- '/assets/img/' | append: site.author_image | append: '.webp' | relative_url -}}" type="image/webp">
@@ -48,7 +54,7 @@ layout: default
       <li class="user-name">
         {{ site.author }}
       </li>
-      <li class="user-shortbio">{%- include processor.html value=site.shortbio -%}</li>
+      <li class="user-shortbio">{{- site.shortbio | escape -}}</li>
     </ul>
   </div>
   {%- endif -%}

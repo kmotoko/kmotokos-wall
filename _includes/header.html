@@ -1,14 +1,12 @@
 <header class="site-header" role="banner">
-
   <div class="wrapper">
-
     <div class="site-header-float">
     {%- include sitetitle.html class=true -%}
     {%- if site.pitch -%}
-      <span class="site-pitch">{%- include processor.html value=site.pitch -%}</span>
+      <span class="site-pitch">{{- site.pitch | strip_newlines -}}</span>
     {%- endif -%}
 
-    {%- if site.pitch == null -%}
+    {%- if site.pitch == false -%}
     <nav class="site-nav">
       <span class="menu-icon">
         <svg viewBox="0 0 18 15" width="18px" height="15px">
@@ -19,7 +17,7 @@
       </span>
 
       <div class="trigger">
-        {%- include nav_menu.html -%}
+        {%- include nav_menu.html class=false -%}
       </div>
     </nav>
     {%- endif -%}

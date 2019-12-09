@@ -1,13 +1,5 @@
 <span class="nav-list-title">{{ site.data.academic_strings.menu["en"] }}</span>
 <ul class="nav-list {{ include.class }}">
-{%- for link in site.nav_ext_links -%}
-  {%- if link.url and link.name -%}
-  <li><a target="_blank" class="page-link" href="{%- include processor.html value=link.url -%}">
-      {%- include processor.html value=link.name -%}
-  </a></li>
-  {%- endif -%}
-{%- endfor -%}
-
 {%- for my_page in site.data.navigation -%}
 {%- unless my_page.invisible -%}
   {%- if my_page.name -%}

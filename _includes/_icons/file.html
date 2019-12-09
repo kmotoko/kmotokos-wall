@@ -1,7 +1,7 @@
-<a href="{%- include processor.html value=include.curriculum.url -%}" title="Curriculum Vitae"><span class="icon icon--cv">{%- include _icons/file.svg -%}</span>
+<a href="{%- include processor.html value=include.curriculum.url escape=true -%}" title="Curriculum Vitae"><span class="icon icon--cv">{%- include _icons/file.svg -%}</span>
   <span class="username">
     {%- if include.curriculum.name -%}
-    {%- include processor.html value=include.curriculum.name -%}
+    {%- include processor.html value=include.curriculum.name escape=false -%}
     {%- else -%}
     {{ site.data.academic_strings.cv["en"] }}
     {%- endif -%}

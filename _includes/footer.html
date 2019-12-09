@@ -1,26 +1,25 @@
-{%- assign strings = site.data.academic_strings -%}
 <footer class="site-footer">
 
   <div class="wrapper">
 
       <ul class="footer-col footer-col-1">
         <li>
-          {%- include sitetitle.html -%}
+          {%- include sitetitle.html class=false -%}
 
-        {%- if site.author_display -%}
-        <span class="author">
-          {{ strings.by["en"] }}&nbsp;
-          {%- if site.author_website -%}
-          <a target="_blank" href="{%- include processor.html value=site.author_website -%}">{{ site.author }}</a>
-          {%- else -%}
-          {{ site.author }}
-          {%- endif -%}
-        </span>
+          {%- if site.author_display -%}
+          <span class="author">
+            {{ site.data.academic_strings.by["en"] }}&nbsp;
+            {%- if site.author_website -%}
+            <a target="_blank" href="{{- site.author_website | uri_escape -}}">{{ site.author }}</a>
+            {%- else -%}
+            {{ site.author }}
+            {%- endif -%}
+          </span>
         </li>
         {%- endif -%}
 
         {%- if site.description -%}
-        <li>{%- include processor.html value=site.description -%}</li>
+        <li>{{- site.description | strip_newlines -}}</li>
         {%- endif -%}
 
       </ul>
@@ -44,18 +43,18 @@
       </div>
 
       <div class="legal">
-      {%- if site.cc == null -%}©{%- endif -%}
-      {%- include sitetitle.html -%}
+      {%- unless site.cc -%}©{%- endunless -%}
+      {%- include sitetitle.html class=false -%}
       {%- assign oldest_post = site.posts reversed | first -%}
       {%- assign oldest = oldest_post.date | date: "%Y" -%}
       {%- assign newest = site.time | date: "%Y" -%}
       ({%- if oldest != newest -%}{{ oldest }}-{%- endif -%}{{ newest }})&nbsp;
       {%- if site.author and site.author_display -%}
-        {{ strings.legal["en"][0] }}
-        <a target="_blank" href="{%- include processor.html value=site.author_website -%}">{{ site.author }}</a>
+        {{ site.data.academic_strings.legal["en"][0] }}
+        <a target="_blank" href="{{- site.author_website | uri_escape -}}">{{ site.author }}</a>
       {%- endif -%}
       {%- if site.cc -%}
-        {{ strings.legal["en"][1] }}
+        {{ site.data.academic_strings.legal["en"][1] }}
         <a target="_blank" rel="license" href="https://creativecommons.org/licenses/{{ site.cc }}/4.0/" class="cc-licence">
           CC {{ site.cc }}
         </a>

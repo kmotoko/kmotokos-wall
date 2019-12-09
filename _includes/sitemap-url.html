@@ -6,13 +6,12 @@
   {%- assign p_done_arr = p_done | split:"," -%}
   {%- unless p_done_arr contains pname -%}
   <url>
-    <loc>{{ site.url }}{{ p.url | url_escape }}</loc>
+    <loc>{{ site.url }}{{ p.url | uri_escape }}</loc>
     {%- assign versions = include.objects | where_exp:"p","p.path contains pname" -%}
     {%- for v in versions -%}
     <xhtml:link
                 rel="alternate"
-                hreflang="{{ v.lang }}"
-                href="{{ site.url }}{{ v.url | url_escape }}"
+                href="{{ site.url }}{{ v.url | uri_escape }}"
                 />
     {%- endfor -%}
     {%- assign p_done = p_done | append:"," | append:pname -%}

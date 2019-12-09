@@ -1,7 +1,11 @@
 <span class="contact-list-title">
   {{ site.data.academic_strings.links["en"] }}
 </span>
+{%- if include.class -%}
 <ul class="contact-list {{ include.class }}">
+{%- else -%}
+<ul class="contact-list">
+{%- endif -%}
   <li>
     {%- include _icons/rss.html -%}
   </li>

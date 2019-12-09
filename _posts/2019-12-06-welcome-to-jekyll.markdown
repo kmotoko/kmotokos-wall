@@ -1,8 +1,15 @@
 ---
+# Global vars
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2019-12-08 01:06:59 +0300
-categories: jekyll update
+title: Welcome to Jekyll
+date: 2019-12-06 01:06:59 +0300
+published: true
+categories: [blog, travel]
+tags: [blog, travel]
+# Theme specific vars
+last_modified_at: 2019-12-06 01:06:59 +0300
+thumbnail: false
+summary: false
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
