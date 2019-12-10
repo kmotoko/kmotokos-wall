@@ -1,9 +1,15 @@
-<span class="nav-list-title">{{ site.data.academic_strings.menu["en"] }}</span>
-<ul class="nav-list {{ include.class }}">
+<span class="nav-list-title">
+  {{- site.data.academic_strings.menu["en"] | strip_html | strip_newlines | xml_escape -}}
+</span>
+<ul class="nav-list {{ include.class | strip_html | strip_newlines }}">
 {%- for my_page in site.data.navigation -%}
 {%- unless my_page.invisible -%}
   {%- if my_page.name -%}
-  <li><a class="page-link" href="{{ my_page.link | relative_url }}">{{ my_page.name | escape }}</a></li>
+  <li>
+    <a class="page-link" href="{{- my_page.link | strip_html | strip_newlines | uri_escape -}}">
+      {{- my_page.name | strip_html | strip_newlines | xml_escape -}}
+    </a>
+  </li>
   {%- endif -%}
 {%- endunless -%}
 {%- endfor -%}

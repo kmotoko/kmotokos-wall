@@ -1,1 +1,8 @@
-<a href="mailto:{{site.email}}" title="Email"><span class="icon icon--email">{%- include _icons/email.svg -%}</span><span class="username">contact</span></span></a>
+<a href="mailto:{{- site.email | strip_html | strip_newlines | uri_escape -}}" title="Email">
+  <span class="icon icon--email">
+    {%- include _icons/email.svg -%}
+  </span>
+  <span class="username">
+    contact
+  </span>
+</a>

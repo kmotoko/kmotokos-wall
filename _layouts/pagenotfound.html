@@ -4,7 +4,9 @@ layout: default
 
 <div class="msg-404">
   <div class="title">404</div>
-  <div class="description">{{ site.data.academic_strings.notfound["en"] }}</div>
+  <div class="description">
+    {{- site.data.academic_strings.notfound["en"] | strip_html | strip_newlines | xml_escape -}}
+  </div>
 </div>
 
-{{ page.content }}
+{{- page.content -}}

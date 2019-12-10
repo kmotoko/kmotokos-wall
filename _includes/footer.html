@@ -8,18 +8,20 @@
 
           {%- if site.author_display -%}
           <span class="author">
-            {{ site.data.academic_strings.by["en"] }}&nbsp;
+            {{- site.data.academic_strings.by["en"] | strip_html | strip_newlines | xml_escape -}}&nbsp;
             {%- if site.author_website -%}
-            <a target="_blank" href="{{- site.author_website | uri_escape -}}">{{ site.author }}</a>
+            <a target="_blank" href="{{- site.author_website | strip_html | strip_newlines | uri_escape -}}">
+              {{- site.author | strip_html | strip_newlines | xml_escape -}}
+            </a>
             {%- else -%}
-            {{ site.author }}
+            {{- site.author | strip_html | strip_newlines | xml_escape -}}
             {%- endif -%}
           </span>
         </li>
         {%- endif -%}
 
         {%- if site.description -%}
-        <li>{{- site.description | strip_newlines -}}</li>
+        <li>{{- site.description | strip_html | strip_newlines | xml_escape -}}</li>
         {%- endif -%}
 
       </ul>
@@ -36,9 +38,18 @@
     <div class="bottom">
 
       <div class="tech">
-        <a target="_blank" href="https://jekyllrb.com/">Jekyll</a> + <a target="_blank" href="https://github.com/gaalcaras/academic">Academic</a>
+        <a target="_blank" href="https://jekyllrb.com/">
+          Jekyll
+        </a>
+        +
+        <a target="_blank" href="https://github.com/gaalcaras/academic">
+          Academic
+        </a>
         {%- if site.repo -%}
-        + <a target="_blank" href="{{ site.repo }}">Source</a>
+        +
+        <a target="_blank" href="{{- site.repo | strip_html | strip_newlines | uri_escape -}}">
+          Source
+        </a>
         {%- endif -%}
       </div>
 
@@ -50,13 +61,15 @@
       {%- assign newest = site.time | date: "%Y" -%}
       ({%- if oldest != newest -%}{{ oldest }}-{%- endif -%}{{ newest }})&nbsp;
       {%- if site.author and site.author_display -%}
-        {{ site.data.academic_strings.legal["en"][0] }}
-        <a target="_blank" href="{{- site.author_website | uri_escape -}}">{{ site.author }}</a>
+        {{- site.data.academic_strings.legal["en"][0] | strip_html | strip_newlines | xml_escape -}}&nbsp;
+        <a target="_blank" href="{{- site.author_website | strip_html | strip_newlines | uri_escape -}}">
+          {{- site.author | strip_html | strip_newlines | xml_escape -}}
+        </a>&nbsp;
       {%- endif -%}
       {%- if site.cc -%}
-        {{ site.data.academic_strings.legal["en"][1] }}
-        <a target="_blank" rel="license" href="https://creativecommons.org/licenses/{{ site.cc }}/4.0/" class="cc-licence">
-          CC {{ site.cc }}
+        {{- site.data.academic_strings.legal["en"][1] | strip_html | strip_newlines | xml_escape -}}&nbsp;
+        <a target="_blank" rel="license" href="https://creativecommons.org/licenses/{{- site.cc | strip_html | strip_newlines | uri_escape -}}/4.0/" class="cc-licence">
+          {{- site.cc | strip_html | strip_newlines | xml_escape -}}
         </a>
       {%- endif -%}
      </div>

@@ -1,8 +1,5 @@
 {%- assign object = include.object -%}
-
 {%- if object.last_modified_at -%}
-
-
   {%- assign last = object.last_modified_at | date: '%Y%m%d' -%}
   {%- assign created = object.date | date: '%Y%m%d' -%}
 
@@ -10,11 +7,11 @@
     <span class="last-update">·
 
     {%- if site.repo -%}
-    <a title="{{ site.data.academic_strings.revhistory["en"] }}"
-       href="{{site.repo}}/commits/master/{{object.path}}">
+    <a title="{{- site.data.academic_strings.revhistory['en'] | strip_html | strip_newlines | xml_escape -}}"
+       href="{{- site.repo | strip_html | strip_newlines | uri_escape -}}/commits/master/{{- object.path | strip_html | strip_newlines | uri_escape -}}">
     {%- endif -%}
 
-    {{ site.data.academic_strings.lastupdated["en"] }}
+    {{- site.data.academic_strings.lastupdated["en"] | strip_html | strip_newlines | xml_escape -}}
     {%- include date.html date=object.last_modified_at -%}
 
     {%- if site.repo -%}
@@ -23,6 +20,4 @@
 
     </span>
   {%- endif -%}
-
-
 {%- endif -%}

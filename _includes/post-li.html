@@ -1,6 +1,8 @@
 <li>
   <h2>
-    <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+    <a class="post-link" href="{{- post.url | strip_html | strip_newlines | uri_escape | relative_url -}}">
+      {{- post.title | strip_html | strip_newlines | xml_escape -}}
+    </a>
   </h2>
     <span class="post-meta">
       <span class="date">
@@ -11,9 +13,13 @@
 
   {%- if post.thumbnail -%}
   <div class="post-thumbnail-wrapper">
-    <a href="{{ post.url | relative_url }}"><img class="post-thumbnail" src="/assets/{{ post.thumbnail }}" alt="{{ post.title | escape }}"/></a>
+    <a href="{{- post.url | strip_html | strip_newlines | uri_escape | relative_url -}}">
+      <img class="post-thumbnail" src="/assets/{{- post.thumbnail | strip_html | strip_newlines | uri_escape -}}" alt="{{- post.title | strip_html | strip_newlines | xml_escape -}}"/>
+    </a>
   </div>
   {%- endif -%}
 
-  <p>{{ post.summary }}</p>
+  <p>
+    {{- post.summary | strip_html | strip_newlines | xml_escape -}}
+  </p>
 </li>

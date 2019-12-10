@@ -3,45 +3,45 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{{ page.title | strip_newlines | append: " | " | default:"" }}{{ site.title | strip_newlines }}</title>
+  <title>
+    {{- page.title | strip_html | strip_newlines | xml_escape | append: " | " | default:"" -}}{{- site.title | strip_html | strip_newlines | xml_escape -}}
+  </title>
 
   {%- if page.summary -%}
-  <meta name="description" content="{{- page.summary | strip_newlines | truncate: 160 -}}">
+  <meta name="description" content="{{- page.summary | strip_html | strip_newlines | xml_escape | truncate: 160 -}}">
   {%- else -%}
-  <meta name="description" content="{{- site.description | strip_newlines -}}">
+  <meta name="description" content="{{- site.description | strip_html | strip_newlines | xml_escape -}}">
   {%- endif -%}
 
-  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{- site.title | strip_newlines -}}" href="{{ '/feed.xml' | relative_url }}">
+  <link rel="stylesheet" href="{{- '/assets/main.css' | strip_html | strip_newlines | uri_escape | relative_url -}}">
+  <link rel="canonical" href="{{- page.url | replace:'index.html','' | absolute_url -}}">
+  <link rel="alternate" type="application/rss+xml" title="{{- site.title | strip_html | strip_newlines | xml_escape -}}" href="{{- '/feed.xml' | strip_html | strip_newlines | uri_escape | relative_url -}}">
 
   {%- capture favicons -%}
   {%- for file in site.static_files -%}
   {%- if file.path contains "apple-touch-icon.png" -%}
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ file.path }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{- file.path -}}">
   {%- endif -%}
 
   {%- if file.path contains "favicon-16x16.png" -%}
-  <link rel="icon" type="image/png" href="{{ file.path }}" sizes="16x16">
+  <link rel="icon" type="image/png" href="{{- file.path -}}" sizes="16x16">
   {%- endif -%}
 
   {%- if file.path contains "favicon-32x32.png" -%}
-  <link rel="icon" type="image/png" href="{{ file.path }}" sizes="32x32">
+  <link rel="icon" type="image/png" href="{{- file.path -}}" sizes="32x32">
   {%- endif -%}
 
   {%- if file.path contains "manifest.json" -%}
-  <link rel="manifest" href="{{ file.path }}">
+  <link rel="manifest" href="{{- file.path -}}">
   {%- endif -%}
 
   {%- if file.path contains "safari-pinned-tab.svg" -%}
-  <link rel="mask-icon" href="{{ file.path }}" color="#{{ site.favicon.safari | default:'ffffff' }}">
+  <link rel="mask-icon" href="{{- file.path -}}" color="#{{- site.favicon.safari | strip_html | strip_newlines | xml_escape | default:'ffffff' -}}">
   {%- endif -%}
 
   {%- endfor -%}
   {%- endcapture -%}
   {{ favicons | strip_newlines | lstrip }}
-  <meta name="theme-color" content="#{{ site.favicon.theme | default:'ffffff' }}">
+  <meta name="theme-color" content="#{{- site.favicon.theme | strip_html | strip_newlines | xml_escape | default:'ffffff' -}}">
 
-  {%- if jekyll.environment == 'production' -%}
-  {%- endif -%}
 </head>

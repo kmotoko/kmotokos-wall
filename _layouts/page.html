@@ -2,6 +2,8 @@
 layout: default
 ---
 
-<h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+<h1 class="post-title" itemprop="name headline">
+  {{- page.title | strip_html | strip_newlines | xml_escape -}}
+</h1>
 
-{{ content }}
+{{- content -}}

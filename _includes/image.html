@@ -1,9 +1,15 @@
 <figure>
-  <img src="{{ include.src }}" title="{{ include.caption }}" alt="{{ include.desc }}">
-  <figcaption>{{ include.caption }}{%- if include.source -%} @
-    {%- if include.href -%}<a href="{{ include.href }}">{%- endif -%}
-      {{ include.source }}
-      {%- if include.href -%}</a>{%- endif -%}
+  <img src="{{- include.src | strip_html | strip_newlines | uri_escape -}}" title="{{- include.caption | strip_html | strip_newlines | xml_escape -}}" alt="{{- include.desc | strip_html | strip_newlines | xml_escape -}}">
+  <figcaption>
+    {{- include.caption | strip_html | strip_newlines | xml_escape -}}
+    {%- if include.source -%} @
+    {%- if include.href -%}
+    <a href="{{- include.href | strip_html | strip_newlines | uri_escape -}}">
+      {%- endif -%}
+      {{- include.source | strip_html | strip_newlines | xml_escape -}}
+      {%- if include.href -%}
+    </a>
+    {%- endif -%}
     {%- endif -%}
   </figcaption>
 </figure>

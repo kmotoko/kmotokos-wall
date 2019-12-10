@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.langs[0] | default: 'en' }}">
+<html lang="{{- site.langs[0] | strip_html | strip_newlines | xml_escape | default: 'en' -}}">
 
   {%- include head.html -%}
 
@@ -13,7 +13,7 @@
     <main class="page-content" aria-label="Content">
     {%- endif -%}
       <div class="wrapper">
-        {{ content }}
+        {{- content -}}
       </div>
     </main>
 

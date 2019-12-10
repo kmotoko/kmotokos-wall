@@ -1,5 +1,8 @@
-<a href="/feed.xml" title="RSS"><span class="icon icon--feed">{%- include _icons/rss.svg -%}</span>
+<a href="/feed.xml" title="RSS">
+  <span class="icon icon--feed">
+    {%- include _icons/rss.svg -%}
+  </span>
   <span class="username">
-    {{ site.data.academic_strings.feed["en"] }}
+    {{- site.data.academic_strings.feed["en"] | strip_html | strip_newlines | xml_escape -}}
   </span>
 </a>

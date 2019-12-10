@@ -1,1 +1,8 @@
-<a target="_blank" href="https://twitter.com/{{ include.username }}" title="Twitter"><span class="icon icon--twitter">{%- include _icons/twitter.svg -%}</span><span class="username">{{ include.username }}</span></a>
+<a target="_blank" href="https://twitter.com/{{- include.username | strip_html | strip_newlines | uri_escape -}}" title="Twitter">
+  <span class="icon icon--twitter">
+    {%- include _icons/twitter.svg -%}
+  </span>
+  <span class="username">
+    {{- include.username | strip_html | strip_newlines | xml_escape -}}
+  </span>
+</a>

@@ -8,12 +8,14 @@ layout: default
   {%- assign div_class = "home pitch" -%}
 {%- endif -%}
 
-<div class="{{ div_class }}">
+<div class="{{- div_class | strip_html | strip_newlines -}}">
   {%- unless site.pitch -%}
-  <p>{%- include processor.html value=site.description -%}</p>
+  <p>
+    {{- site.description | strip_html | strip_newlines | xml_escape -}}
+  </p>
   {%- endunless -%}
 
-  {{ content }}
+  {{- content -}}
 
   {%- include calltoaction.html -%}
 

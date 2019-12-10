@@ -9,7 +9,10 @@
 {%- endif -%}
 
 {%- capture title -%}
-  {{- site.title | strip_newlines -}}
+  {{- site.title | strip_html | strip_newlines | xml_escape -}}
 {%- endcapture -%}
 
-<a class="{{ title_class }}" href="{{ '/' | relative_url }}">{{ title }}</a>
+<a
+ href="{{- '/' | uri_escape | relative_url -}}">
+  {{- title -}}
+</a>

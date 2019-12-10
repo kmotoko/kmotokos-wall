@@ -1,7 +1,11 @@
 {%- capture url -%}
-{{- include.url | uri_escape | strip_newlines -}}
+{{- include.url | strip_html | strip_newlines | uri_escape -}}
 {%- endcapture -%}
-<a target="_blank" href="{{ url }}" title="Site">
-  <span class="icon icon--website">{%- include _icons/website.svg -%}</span>
-  <span class="username">{{ url | replace:'https://','' | replace: 'http://','' | replace: 'www.','' }}</span>
+<a target="_blank" href="{{- url -}}" title="Site">
+  <span class="icon icon--website">
+    {%- include _icons/website.svg -%}
+  </span>
+  <span class="username">
+    {{- url | replace:'https://','' | replace: 'http://','' | replace: 'www.','' -}}
+  </span>
 </a>

@@ -4,10 +4,10 @@ layout: default
 
 <div class="home">
   <div class="colored-block">
-    {{ site.data.academic_strings.archive["en"] }}
+    {{- site.data.academic_strings.archive["en"] | strip_html | strip_newlines | xml_escape -}}
   </div>
 
-  {{ content }}
+  {{- content -}}
 
   {%- include post-ul.html -%}
 

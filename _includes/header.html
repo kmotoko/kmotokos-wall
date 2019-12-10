@@ -3,7 +3,7 @@
     <div class="site-header-float">
     {%- include sitetitle.html class=true -%}
     {%- if site.pitch -%}
-      <span class="site-pitch">{{- site.pitch | strip_newlines -}}</span>
+      <span class="site-pitch">{{- site.pitch | strip_html | strip_newlines | xml_escape -}}</span>
     {%- endif -%}
 
     {%- if site.pitch == false -%}

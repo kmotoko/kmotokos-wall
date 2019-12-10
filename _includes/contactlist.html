@@ -1,8 +1,8 @@
 <span class="contact-list-title">
-  {{ site.data.academic_strings.links["en"] }}
+  {{- site.data.academic_strings.links["en"] | strip_html | strip_newlines | xml_escape -}}
 </span>
 {%- if include.class -%}
-<ul class="contact-list {{ include.class }}">
+<ul class="contact-list {{ include.class | strip_html | strip_newlines }}">
 {%- else -%}
 <ul class="contact-list">
 {%- endif -%}
