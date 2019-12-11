@@ -8,7 +8,7 @@
   {%- endif -%}
 
   {{- cta.rss["en"][0] | strip_html | strip_newlines | xml_escape -}}&nbsp;
-  <a href="/feed.xml">
+  <a href="{{- site.feed.path | strip_html | strip_newlines | uri_escape | relative_url -}}">
     {{- cta.rss["en"][1] | strip_html | strip_newlines | xml_escape -}}
   </a>&nbsp;
   {%- if site.twitter_username -%}

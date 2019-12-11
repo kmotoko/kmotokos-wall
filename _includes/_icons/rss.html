@@ -1,4 +1,4 @@
-<a href="/feed.xml" title="RSS">
+<a href="{{- site.feed.path | strip_html | strip_newlines | uri_escape | relative_url -}}" title="RSS">
   <span class="icon icon--feed">
     {%- include _icons/rss.svg -%}
   </span>
