@@ -20,28 +20,35 @@
   {%- capture favicons -%}
   {%- for file in site.static_files -%}
   {%- if file.path contains "apple-touch-icon.png" -%}
-  <link rel="apple-touch-icon" sizes="180x180" href="{{- file.path -}}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{- '/apple-touch-icon.png' | strip_html | strip_newlines | uri_escape | relative_url -}}"/>
   {%- endif -%}
-
-  {%- if file.path contains "favicon-16x16.png" -%}
-  <link rel="icon" type="image/png" href="{{- file.path -}}" sizes="16x16">
-  {%- endif -%}
-
   {%- if file.path contains "favicon-32x32.png" -%}
-  <link rel="icon" type="image/png" href="{{- file.path -}}" sizes="32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{- '/favicon-32x32.png' | strip_html | strip_newlines | uri_escape | relative_url -}}"/>
   {%- endif -%}
-
-  {%- if file.path contains "manifest.json" -%}
-  <link rel="manifest" href="{{- file.path -}}">
+  {%- if file.path contains "favicon-16x16.png" -%}
+  <link rel="icon" type="image/png" sizes="16x16" href="{{- '/favicon-16x16.png' | strip_html | strip_newlines | uri_escape | relative_url -}}"/>
   {%- endif -%}
-
+  {%- if file.path contains "site.webmanifest" -%}
+  <link rel="manifest" href="{{- '/site.webmanifest' | strip_html | strip_newlines | uri_escape | relative_url -}}"/>
+  {%- endif -%}
   {%- if file.path contains "safari-pinned-tab.svg" -%}
-  <link rel="mask-icon" href="{{- file.path -}}" color="#{{- site.favicon.safari | strip_html | strip_newlines | xml_escape | default:'ffffff' -}}">
+  <link rel="mask-icon" href="{{- '/safari-pinned-tab.svg' | strip_html | strip_newlines | uri_escape | relative_url -}}" color="#{{- site.favicon.safari | strip_html | strip_newlines | xml_escape | default:'ffffff' -}}"/>
   {%- endif -%}
-
+  {%- if file.path contains "favicon.ico" -%}
+  <link rel="shortcut icon" href="{{- '/favicon.ico' | strip_html | strip_newlines | uri_escape | relative_url -}}"/>
+  {%- endif -%}
   {%- endfor -%}
   {%- endcapture -%}
-  {{ favicons | strip_newlines | lstrip }}
-  <meta name="theme-color" content="#{{- site.favicon.theme | strip_html | strip_newlines | xml_escape | default:'ffffff' -}}">
+
+  {{- favicons | strip_newlines -}}
+
+  {%- if site.title -%}
+  <meta name="apple-mobile-web-app-title" content="{{- site.title | strip_html | strip_newlines | xml_escape -}}"/>
+  {%- endif -%}
+  {%- if site.title -%}
+  <meta name="application-name" content="{{- site.title | strip_html | strip_newlines | xml_escape -}}"/>
+  {%- endif -%}
+  <meta name="msapplication-TileColor" content="#{{- site.favicon.msapplication | strip_html | strip_newlines | xml_escape | default:'ffffff' -}}"/>
+  <meta name="theme-color" content="#{{- site.favicon.theme | strip_html | strip_newlines | xml_escape | default:'ffffff' -}}"/>
 
 </head>
