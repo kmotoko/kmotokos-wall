@@ -1,18 +1,17 @@
 {%- if include.class -%}
   {%- if site.pitch -%}
-    {%- assign title_class = "site-title with-pitch" -%}
+    {%- assign title_class = 'site-title with-pitch' -%}
   {%- else -%}
-    {%- assign title_class = "site-title" -%}
+    {%- assign title_class = 'site-title' -%}
   {%- endif -%}
 {%- else -%}
-  {%- assign title_class = "" -%}
+  {%- assign title_class = '' -%}
 {%- endif -%}
 
 {%- capture title -%}
   {{- site.title | strip_html | strip_newlines | xml_escape -}}
 {%- endcapture -%}
 
-<a
- href="{{- '/' | uri_escape | relative_url -}}">
+<a href="{{- '/' | uri_escape | relative_url -}}" class="{{- title_class -}}">
   {{- title -}}
 </a>
