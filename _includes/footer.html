@@ -37,12 +37,12 @@
 
     <div class="bottom">
 
-      <div class="tech">
-        <a target="_blank" href="https://jekyllrb.com/">
+      <!-- <div class="tech">
+        <a target="_blank" href="">
           Jekyll
         </a>
         +
-        <a target="_blank" href="https://github.com/gaalcaras/academic">
+        <a target="_blank" href="">
           Academic
         </a>
         {%- if site.repo -%}
@@ -51,28 +51,37 @@
           Source
         </a>
         {%- endif -%}
-      </div>
+      </div> -->
 
       <div class="legal">
-      {%- unless site.cc -%}©{%- endunless -%}
       {%- include sitetitle.html class=false -%}
       {%- assign oldest_post = site.posts reversed | first -%}
       {%- assign oldest = oldest_post.date | date: "%Y" -%}
       {%- assign newest = site.time | date: "%Y" -%}
-      ({%- if oldest != newest -%}{{ oldest }}-{%- endif -%}{{ newest }})&nbsp;
+      &copy;&nbsp;({%- if oldest != newest -%}{{ oldest }}-{%- endif -%}{{ newest }})&nbsp;
       {%- if site.author and site.author_display -%}
-        {{- site.data.academic_strings.legal["en"][0] | strip_html | strip_newlines | xml_escape -}}&nbsp;
+        {{- site.data.academic_strings.legal["en"][3] | strip_html | strip_newlines | xml_escape -}}&nbsp;
         <a target="_blank" href="{{- site.author_website | strip_html | strip_newlines | uri_escape -}}">
           {{- site.author | strip_html | strip_newlines | xml_escape -}}
-        </a>&nbsp;
-      {%- endif -%}
-      {%- if site.cc -%}
-        {{- site.data.academic_strings.legal["en"][1] | strip_html | strip_newlines | xml_escape -}}&nbsp;
-        <a target="_blank" rel="license" href="https://creativecommons.org/licenses/{{- site.cc | strip_html | strip_newlines | uri_escape -}}/4.0/" class="cc-licence">
-          {{- site.cc | strip_html | strip_newlines | xml_escape -}}
         </a>
+        <br/>
       {%- endif -%}
-     </div>
+      {%- if site.gnu.shortname and site.gnu.url -%}
+        {{- site.data.academic_strings.legal["en"][1] | strip_html | strip_newlines | xml_escape -}}&nbsp;
+        <a target="_blank" rel="license" href="{{- site.gnu.url | strip_html | strip_newlines | uri_escape -}}" class="cc-licence">
+          {{- site.gnu.shortname | strip_html | strip_newlines | xml_escape -}}
+        </a>.
+        <br/>
+      {%- endif -%}
+      {%- if site.cc.shortname and site.cc.url -%}
+        {{- site.data.academic_strings.legal["en"][0] | strip_html | strip_newlines | xml_escape -}}&nbsp;
+        <a target="_blank" rel="license" href="{{- site.cc.url | strip_html | strip_newlines | uri_escape -}}" class="cc-licence">
+          {{- site.cc.shortname | strip_html | strip_newlines | xml_escape -}}
+        </a>&nbsp;
+        {{- site.data.academic_strings.legal["en"][2] | strip_html | strip_newlines | xml_escape -}}
+      {%- endif -%}
+
+      </div>
     </div>
 
   </div>
