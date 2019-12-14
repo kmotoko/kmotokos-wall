@@ -2,7 +2,7 @@
   {%- assign cta = site.data.academic_strings.cta -%}
   {%- if page.layout == "home" or page.layout == "archive" -%}
     {{- cta.like["en"] | strip_html | strip_newlines | xml_escape -}}&nbsp;
-  {%- else if page.layout == "post" -%}
+  {%- else if page.layout == "posts" -%}
     {{- cta.post["en"] | strip_html | strip_newlines | xml_escape -}}&nbsp;
   {%- else -%}
   {%- endif -%}
