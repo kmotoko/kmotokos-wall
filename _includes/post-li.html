@@ -4,22 +4,40 @@
       {{- post.title | strip_html | strip_newlines | xml_escape -}}
     </a>
   </h2>
-    <span class="post-meta">
-      <span class="date">
-      {%- include date.html date=post.date -%}
-      {%- include last_modified_at.html object=post -%}
-      </span>
+  <span class="post-meta">
+    <span class="date">
+    {%- include date.html date=post.date -%}
+    {%- include last_modified_at.html object=post -%}
     </span>
-
-  {%- if post.thumbnail -%}
+  </span>
   <div class="post-thumbnail-wrapper">
-    <a href="{{- post.url | strip_html | strip_newlines | uri_escape | relative_url -}}">
-      <img class="post-thumbnail" src="/assets/{{- post.thumbnail | strip_html | strip_newlines | uri_escape -}}" alt="{{- post.title | strip_html | strip_newlines | xml_escape -}}"/>
-    </a>
+    <div class="post-thumbnail-box-1">
+      <a href="{{- post.url | strip_html | strip_newlines | uri_escape | relative_url -}}">
+        {% if site.thumbnail.base and post.thumbnail.name -%}
+        ​<picture>
+          {% assign thumb_base = site.thumbnail.base | strip_html | strip_newlines | uri_escape -%}
+          {%- assign thumb_sq = post.thumbnail.name | append: site.thumbnail.square_ext | strip_html | strip_newlines | uri_escape -%}
+          {%- assign thumb_mid = post.thumbnail.name | append: site.thumbnail.mid_ext | strip_html | strip_newlines | uri_escape -%}
+          {%- assign thumb_wide = post.thumbnail.name | append: site.thumbnail.wide_ext | strip_html | strip_newlines | uri_escape -%}
+          {%- assign thumb_alt = post.title | strip_html | strip_newlines | xml_escape -%}
+          {%- if post.thumbnail.webp -%}
+          <source srcset="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.webp' | relative_url -}}" type="image/webp"/>
+          {%- endif -%}
+          {%- if post.thumbnail.png -%}
+          <source srcset="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.png' | relative_url -}}" type="image/png"/>
+          {%- endif -%}
+          <source srcset="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.jpg'| relative_url -}}" type="image/jpeg"/>
+          <img src="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.jpg' | relative_url -}}" class="post-thumbnail" alt="{{- thumb_alt -}}"/>
+        </picture>
+        {%- endif %}
+      </a>
+    </div>
+    <div class="post-thumbnail-box-2">
+      <p class="post-thumbnail-summary">
+        {% if post.summary -%}
+          {{- post.summary | strip_html | strip_newlines | xml_escape -}}
+        {% endif %}
+      </p>
+    </div>
   </div>
-  {%- endif -%}
-
-  <p>
-    {{- post.summary | strip_html | strip_newlines | xml_escape -}}
-  </p>
 </li>
