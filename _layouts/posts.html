@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="post">
 
   {% if page.thumbnail.name -%}
   <header class="post-header with-thumbnail">
@@ -10,12 +10,12 @@ layout: default
   {%- endif %}
     {% if page.title -%}
     {%- assign ptitle = page.title | strip_html | strip_newlines | xml_escape -%}
-    <h1 class="post-title" itemprop="name headline">{{- ptitle -}}</h1>
+    <h1 class="post-title">{{- ptitle -}}</h1>
     {%- endif %}
     <p class="post-meta">
       {% if page.date -%}
       {%- assign pdate = page.date | strip_html | strip_newlines | date_to_xmlschema -%}
-      <time datetime="{{- pdate -}}" itemprop="datePublished">
+      <time datetime="{{- pdate -}}">
         {%- include date.html date=page.date -%}
       </time>
       {%- endif %}
@@ -23,7 +23,7 @@ layout: default
       {% if site.author -%}
         &nbsp;•&nbsp;
         {%- assign sauthor = site.author | strip_html | strip_newlines | xml_escape -%}
-        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{- sauthor -}}</span></span>
+        <span>{{- sauthor -}}</span>
       {%- endif %}
     </p>
     {% if page.thumbnail.name -%}
@@ -58,7 +58,7 @@ layout: default
     </div>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
+  <div class="post-content">
     {{ content }}
   </div>
 

@@ -44,11 +44,11 @@ layout: default
 
   </div>
 
-  <article class="about-col about-col-2" itemscope itemtype="http://schema.org/BlogPosting">
+  <article class="about-col about-col-2">
 
     <h1>{{- page.title | strip_html | strip_newlines | xml_escape -}}</h1>
 
-    <div class="post-content" itemprop="articleBody">
+    <div class="post-content">
       {{ content }}
     </div>
 
