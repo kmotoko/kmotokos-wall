@@ -12,10 +12,46 @@
   {%- else -%}
   <meta name="description" content="{{- site.description | strip_html | strip_newlines | xml_escape -}}">
   {%- endif -%}
+  {% if page.tags -%}
+  <meta name="keywords" content="{{- page.tags | array_to_sentence_string: ',' -}}"/>
+  {% endif -%}
 
   <link rel="stylesheet" href="{{- '/assets/main.css' | strip_html | strip_newlines | uri_escape | relative_url -}}">
   <link rel="canonical" href="{{- page.url | replace:'index.html','' | absolute_url -}}">
   <link rel="alternate" type="application/rss+xml" title="{{- site.title | strip_html | strip_newlines | xml_escape -}}" href="{{- site.feed.path | strip_html | strip_newlines | uri_escape | relative_url -}}">
+
+  {% if site.thumbnail.base -%}
+  {%- assign thumb_base = site.thumbnail.base | strip_html | strip_newlines | uri_escape -%}
+  {%- endif -%}
+  {%- if page.thumbnail.name -%}
+  {%- assign thumb_extra_wide = page.thumbnail.name | append: site.thumbnail.extra_wide_ext | strip_html | strip_newlines | uri_escape -%}
+  {%- endif -%}
+  {% if site.title -%}
+  <meta property="og:site_name" content="{{- site.title | strip_html | strip_newlines | xml_escape -}}"/>
+  {% endif -%}
+  {% if page.title -%}
+  <meta property="og:title" content="{{- page.title | strip_html | strip_newlines | xml_escape -}}"/>
+  {% endif -%}
+  {% if page.summary -%}
+  <meta property="og:description" content="{{- page.summary | strip_html | strip_newlines | xml_escape | truncate: 160 -}}"/>
+  {% endif -%}
+  {% if thumb_base and site.thumbnail.extra_wide and thumb_extra_wide -%}
+  <meta property="og:image" content="{{- thumb_base | append: site.thumbnail.extra_wide | append: thumb_extra_wide | append: '.jpg'| absolute_url -}}"/>
+  {% endif -%}
+  {% if page.url -%}
+  <meta property="og:url" content="{{- page.url | replace:'index.html','' | absolute_url -}}"/>
+  {% endif -%}
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  {% if site.title -%}
+  <meta name="twitter:title" content="{{- page.title | strip_html | strip_newlines | xml_escape | append: ' | ' | default:'' -}}{{- site.title | strip_html | strip_newlines | xml_escape -}}"/>
+  {% endif -%}
+  {% if page.summary -%}
+  <meta name="twitter:description" content="{{- page.summary | strip_html | strip_newlines | xml_escape | truncate: 160 -}}"/>
+  {% endif -%}
+  {% if thumb_base and site.thumbnail.extra_wide and thumb_extra_wide -%}
+  <meta name="twitter:image" content="{{- thumb_base | append: site.thumbnail.extra_wide | append: thumb_extra_wide | append: '.jpg'| absolute_url -}}"/>
+  {% endif -%}
 
   {%- capture favicons -%}
   {%- for file in site.static_files -%}
@@ -40,15 +76,16 @@
   {%- endfor -%}
   {%- endcapture -%}
 
-  {{- favicons | strip_newlines -}}
+  {{- favicons -}}
 
   {%- if site.title -%}
   <meta name="apple-mobile-web-app-title" content="{{- site.title | strip_html | strip_newlines | xml_escape -}}"/>
-  {%- endif -%}
-  {%- if site.title -%}
   <meta name="application-name" content="{{- site.title | strip_html | strip_newlines | xml_escape -}}"/>
   {%- endif -%}
   <meta name="msapplication-TileColor" content="#{{- site.favicon.msapplication | strip_html | strip_newlines | xml_escape | default:'ffffff' -}}"/>
   <meta name="theme-color" content="#{{- site.favicon.theme | strip_html | strip_newlines | xml_escape | default:'ffffff' -}}"/>
+  {% if page.layout == "posts" -%}
+    {% include _stdata/article.html -%}
+  {%- endif -%}
 
 </head>
