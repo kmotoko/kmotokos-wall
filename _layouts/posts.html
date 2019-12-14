@@ -39,17 +39,17 @@ layout: default
       <source srcset="{{- thumb_base | append: site.thumbnail.wide | append: thumb_wide | append: '.webp' | relative_url -}}" type="image/webp">
       {%- endif -%}
       {%- if page.thumbnail.png -%}
-      <source media="(max-width: 600px)" srcset="{{- thumb_base | append: site.thumbnail.square | append: thumb_sq | append: '.png' | relative_url -}}" type="image/webp">
-      <source media="(max-width: 800px)" srcset="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.png' | relative_url -}}" type="image/webp">
-      <source srcset="{{- thumb_base | append: site.thumbnail.wide | append: thumb_wide | append: '.png' | relative_url -}}" type="image/webp">
+      <source media="(max-width: 600px)" srcset="{{- thumb_base | append: site.thumbnail.square | append: thumb_sq | append: '.png' | relative_url -}}" type="image/png">
+      <source media="(max-width: 800px)" srcset="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.png' | relative_url -}}" type="image/png">
+      <source srcset="{{- thumb_base | append: site.thumbnail.wide | append: thumb_wide | append: '.png' | relative_url -}}" type="image/png">
       {%- endif -%}
-      <source media="(max-width: 600px)" srcset="{{- thumb_base | append: site.thumbnail.square | append: thumb_sq | append: '.jpg' | relative_url -}}" type="image/webp">
-      <source media="(max-width: 800px)" srcset="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.jpg' | relative_url -}}" type="image/webp">
-      <source srcset="{{- thumb_base | append: site.thumbnail.wide | append: thumb_wide | append: '.jpg'| relative_url -}}" type="image/webp">
+      <source media="(max-width: 600px)" srcset="{{- thumb_base | append: site.thumbnail.square | append: thumb_sq | append: '.jpg' | relative_url -}}" type="image/jpeg">
+      <source media="(max-width: 800px)" srcset="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.jpg' | relative_url -}}" type="image/jpeg">
+      <source srcset="{{- thumb_base | append: site.thumbnail.wide | append: thumb_wide | append: '.jpg'| relative_url -}}" type="image/jpeg">
       <img src="{{- thumb_base | append: site.thumbnail.wide | append: thumb_wide | append: '.jpg' | relative_url -}}" class="post-thumbnail" alt="{{- thumb_alt -}}">
     </picture>
     {%- endif -%}
-    <div class="wrapper">
+    <div>
       {%- if page.summary -%}
       <h3 class="post-summary">
         {{- page.summary | strip_html | strip_newlines | xml_escape -}}
