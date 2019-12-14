@@ -1,0 +1,71 @@
+{%- if site.thumbnail.base -%}
+{%- assign thumb_base = site.thumbnail.base | strip_html | strip_newlines | uri_escape -%}
+{%- endif -%}
+{%- if page.thumbnail.name -%}
+{%- if site.thumbnail.square_ext -%}
+{%- assign thumb_sq = page.thumbnail.name | append: site.thumbnail.square_ext | strip_html | strip_newlines | uri_escape -%}
+{%- endif -%}
+{%- if site.thumbnail.mid_ext -%}
+{%- assign thumb_mid = page.thumbnail.name | append: site.thumbnail.mid_ext | strip_html | strip_newlines | uri_escape -%}
+{%- endif -%}
+{%- if site.thumbnail.wide_ext -%}
+{%- assign thumb_wide = page.thumbnail.name | append: site.thumbnail.wide_ext | strip_html | strip_newlines | uri_escape -%}
+{%- endif -%}
+{%- endif -%}
+{%- if page.title -%}
+{%- assign thumb_alt = page.title | strip_html | strip_newlines | xml_escape -%}
+{%- endif -%}
+<script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  {% if page.url -%}
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{- page.url | replace:'index.html','' | absolute_url -}}"
+  },
+  "url": "{{- page.url | replace:'index.html','' | absolute_url -}}",
+  {% endif -%}
+  "headline": "{{- page.title | strip_html | strip_newlines | xml_escape | truncate: 110 | default:'' -}}",
+  {% if page.summary -%}
+  "description": "{{- page.summary | strip_html | strip_newlines | xml_escape | truncate: 160 -}}",
+  {% endif -%}
+  {% if page.tags -%}
+  "keywords": "{{- page.tags | array_to_sentence_string: ',' -}}",
+  {% endif -%}
+  "image": [
+    {% if thumb_base -%}
+    {% if site.thumbnail.square and thumb_sq -%}
+    "{{- thumb_base | append: site.thumbnail.square | append: thumb_sq | append: '.jpg' | absolute_url -}}",
+    {% endif -%}
+    {% if site.thumbnail.mid and thumb_mid -%}
+    "{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.jpg' | absolute_url -}}",
+    {% endif -%}
+    {% if site.thumbnail.wide and thumb_wide -%}
+    "{{- thumb_base | append: site.thumbnail.wide | append: thumb_wide | append: '.jpg'| absolute_url -}}"
+    {% endif -%}
+    {% endif -%}
+  ],
+  {% if site.author -%}
+  "author": {
+    "@type": "Person",
+    "name": "{{- site.author | strip_html | strip_newlines | xml_escape -}}"
+  },
+  {% endif -%}
+  {% if site.title and site.baseurl and site.logo.height and site.logo.width -%}
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{- site.title | strip_html | strip_newlines | xml_escape -}}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{- site.baseurl | uri_escape | absolute_url -}}",
+      "height": {{ site.logo.height | to_integer -}},
+      "width": {{ site.logo.width | to_integer }}
+    }
+  },
+  {% endif -%}
+  "datePublished": "{{- page.date | strip_html | strip_newlines | date_to_xmlschema -}}",
+  "dateCreated": "{{- page.date | strip_html | strip_newlines | date_to_xmlschema -}}",
+  "dateModified": "{{- page.last_modified_at | strip_html | strip_newlines | date_to_xmlschema | default: page.date | strip_html | strip_newlines | date_to_xmlschema -}}"
+  }
+</script>
