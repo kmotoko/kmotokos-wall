@@ -5,8 +5,8 @@ layout: default
 <div class="about-col-wrapper">
   <div class="about-col about-col-1">
 
-    {%- if site.author_image -%}
-    {%- assign img_base = '/assets/img/' | append: site.author_image -%}
+    {%- if site.thumbnail.base and site.author_image -%}
+    {%- assign img_base = site.thumbnail.base | append: site.author_image -%}
     {%- assign img_svg = img_base | append: '.svg' | strip_html | strip_newlines | uri_escape -%}
     {%- assign img_webp = img_base | append: '.webp' | strip_html | strip_newlines | uri_escape -%}
     {%- assign img_png = img_base | append: '.png' | strip_html | strip_newlines | uri_escape -%}
