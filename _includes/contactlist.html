@@ -1,31 +1,31 @@
 <span class="contact-list-title">
   {{- site.data.academic_strings.links["en"] | strip_html | strip_newlines | xml_escape -}}
 </span>
-{%- if include.class -%}
+{% if include.class -%}
 <ul class="contact-list {{ include.class | strip_html | strip_newlines }}">
-{%- else -%}
+{% else -%}
 <ul class="contact-list">
-{%- endif -%}
+{%- endif %}
   <li>
     {%- include _icons/rss.html -%}
   </li>
 
-  {%- if site.github_username -%}
+  {% if site.github_username -%}
   <li>
     {%- include _icons/github.html username=site.github_username -%}
   </li>
-  {%- endif -%}
+  {%- endif %}
 
-  {%- if site.twitter_username -%}
+  {% if site.twitter_username -%}
   <li>
     {%- include _icons/twitter.html username=site.twitter_username -%}
   </li>
-  {%- endif -%}
+  {%- endif %}
 
-  {%- if site.linkedin_username -%}
+  {% if site.linkedin_username -%}
   <li>
     {%- include _icons/linkedin.html username=site.linkedin_username -%}
   </li>
-  {%- endif -%}
+  {%- endif %}
 
 </ul>

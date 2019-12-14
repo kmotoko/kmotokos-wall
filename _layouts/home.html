@@ -9,14 +9,14 @@ layout: default
 {%- endif -%}
 
 <div class="{{- div_class | strip_html | strip_newlines -}}">
-  {%- unless site.pitch -%}
+  {% unless site.pitch -%}
   <p>
-    {{- site.description | strip_html | strip_newlines | xml_escape -}}
+    {{ site.description | strip_html | strip_newlines | xml_escape }}
   </p>
-  {%- endunless -%}
+  {%- endunless %}
 
-  {{- content -}}
+  {{ content }}
 
-  {%- include calltoaction.html -%}
+  {% include calltoaction.html %}
 
 </div>

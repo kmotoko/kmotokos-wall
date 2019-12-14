@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="{{- site.langs[0] | strip_html | strip_newlines | xml_escape | default: 'en' -}}">
 
-  {%- include head.html -%}
+  {% include head.html %}
 
   <body>
 
-    {%- include header.html -%}
+    {% include header.html %}
 
-    {%- if page.layout == "posts" -%}
+    {% if page.layout == "posts" -%}
     <main class="post-content" aria-label="Content">
-    {%- else -%}
+    {% else -%}
     <main class="page-content" aria-label="Content">
-    {%- endif -%}
+    {%- endif %}
       <div class="wrapper">
-        {{- content -}}
+        {{ content }}
       </div>
     </main>
 
-    {%- include footer.html -%}
+    {% include footer.html %}
 
   </body>
 

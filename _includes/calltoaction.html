@@ -1,21 +1,21 @@
 <div class="colored-block">
   {%- assign cta = site.data.academic_strings.cta -%}
-  {%- if page.layout == "home" or page.layout == "archive" -%}
+  {% if page.layout == "home" or page.layout == "archive" -%}
     {{- cta.like["en"] | strip_html | strip_newlines | xml_escape -}}&nbsp;
-  {%- else if page.layout == "posts" -%}
+  {% else if page.layout == "posts" -%}
     {{- cta.post["en"] | strip_html | strip_newlines | xml_escape -}}&nbsp;
-  {%- else -%}
-  {%- endif -%}
+  {% else -%}
+  {%- endif %}
 
-  {{- cta.rss["en"][0] | strip_html | strip_newlines | xml_escape -}}&nbsp;
+  {{ cta.rss["en"][0] | strip_html | strip_newlines | xml_escape -}}&nbsp;
   <a href="{{- site.feed.path | strip_html | strip_newlines | uri_escape | relative_url -}}">
     {{- cta.rss["en"][1] | strip_html | strip_newlines | xml_escape -}}
   </a>&nbsp;
-  {%- if site.twitter_username -%}
-    {{- cta.twitter["en"][0] | strip_html | strip_newlines | xml_escape -}}&nbsp;
+  {% if site.twitter_username -%}
+    {{ cta.twitter["en"][0] | strip_html | strip_newlines | xml_escape }}&nbsp;
     <a href="https://twitter.com/{{- site.twitter_username | strip_html | strip_newlines | uri_escape -}}">
       @{{- site.twitter_username | strip_html | strip_newlines | xml_escape -}}
     </a>&nbsp;
-    {{- cta.twitter["en"][1] | strip_html | strip_newlines | xml_escape -}}
-  {%- endif -%}.
+    {{ cta.twitter["en"][1] | strip_html | strip_newlines | xml_escape }}
+  {%- endif %}.
 </div>

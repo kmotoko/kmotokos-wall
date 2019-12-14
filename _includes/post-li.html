@@ -1,7 +1,7 @@
 <li>
   <h2>
     <a class="post-link" href="{{- post.url | strip_html | strip_newlines | uri_escape | relative_url -}}">
-      {{- post.title | strip_html | strip_newlines | xml_escape -}}
+      {{ post.title | strip_html | strip_newlines | xml_escape }}
     </a>
   </h2>
   <span class="post-meta">
@@ -36,7 +36,7 @@
       <p class="post-thumbnail-summary">
         {% if post.summary -%}
           {{- post.summary | strip_html | strip_newlines | xml_escape -}}
-        {% endif %}
+        {%- endif %}
       </p>
     </div>
   </div>

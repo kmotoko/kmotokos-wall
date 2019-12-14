@@ -1,4 +1,4 @@
-{%- if include.class -%}
+{% if include.class -%}
   {%- if site.pitch -%}
     {%- assign title_class = 'site-title with-pitch' -%}
   {%- else -%}
@@ -6,7 +6,7 @@
   {%- endif -%}
 {%- else -%}
   {%- assign title_class = '' -%}
-{%- endif -%}
+{%- endif %}
 
 {%- capture title -%}
   {{- site.title | strip_html | strip_newlines | xml_escape -}}

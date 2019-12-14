@@ -1,7 +1,7 @@
-{%- if site.thumbnail.base -%}
+{% if site.thumbnail.base -%}
 {%- assign thumb_base = site.thumbnail.base | strip_html | strip_newlines | uri_escape -%}
-{%- endif -%}
-{%- if page.thumbnail.name -%}
+{%- endif %}
+{% if page.thumbnail.name -%}
 {%- if site.thumbnail.square_ext -%}
 {%- assign thumb_sq = page.thumbnail.name | append: site.thumbnail.square_ext | strip_html | strip_newlines | uri_escape -%}
 {%- endif -%}
@@ -11,10 +11,10 @@
 {%- if site.thumbnail.wide_ext -%}
 {%- assign thumb_wide = page.thumbnail.name | append: site.thumbnail.wide_ext | strip_html | strip_newlines | uri_escape -%}
 {%- endif -%}
-{%- endif -%}
-{%- if page.title -%}
+{%- endif %}
+{% if page.title -%}
 {%- assign thumb_alt = page.title | strip_html | strip_newlines | xml_escape -%}
-{%- endif -%}
+{%- endif %}
 <script type="application/ld+json">
   {
   "@context": "https://schema.org",

@@ -1,39 +1,35 @@
 <footer class="site-footer">
-
   <div class="wrapper">
-
-      <ul class="footer-col footer-col-1">
-        <li>
-          {%- include sitetitle.html class=false -%}
-
-          {%- if site.author_display -%}
-          <span class="author">
-            {{- site.data.academic_strings.by["en"] | strip_html | strip_newlines | xml_escape -}}&nbsp;
-            {%- if site.author_website -%}
-            <a target="_blank" href="{{- site.author_website | strip_html | strip_newlines | uri_escape -}}">
-              {{- site.author | strip_html | strip_newlines | xml_escape -}}
-            </a>
-            {%- else -%}
+    <ul class="footer-col footer-col-1">
+      <li>
+        {% include sitetitle.html class=false %}
+        {% if site.author_display -%}
+        <span class="author">
+          {{- site.data.academic_strings.by["en"] | strip_html | strip_newlines | xml_escape -}}&nbsp;
+          {% if site.author_website -%}
+          <a target="_blank" href="{{- site.author_website | strip_html | strip_newlines | uri_escape -}}">
             {{- site.author | strip_html | strip_newlines | xml_escape -}}
-            {%- endif -%}
-          </span>
-        </li>
-        {%- endif -%}
+          </a>
+          {% else -%}
+          {{- site.author | strip_html | strip_newlines | xml_escape -}}
+          {%- endif %}
+        </span>
+        {%- endif %}
+      </li>
 
-        {%- if site.description -%}
-        <li>{{- site.description | strip_html | strip_newlines | xml_escape -}}</li>
-        {%- endif -%}
+      {% if site.description -%}
+      <li>{{- site.description | strip_html | strip_newlines | xml_escape -}}</li>
+      {%- endif %}
+    </ul>
 
-      </ul>
-
-      {%- if site.pitch -%}
-        <nav>
-        {%- include nav_menu.html class="footer-col footer-col-2"%}
-        {%- include contactlist.html class="single-col" -%}
-        </nav>
-      {%- else -%}
-        {%- include contactlist.html class="footer-col footer-col-2" -%}
-      {%- endif -%}
+    {% if site.pitch -%}
+      <nav>
+      {%- include nav_menu.html class="footer-col footer-col-2"%}
+      {%- include contactlist.html class="single-col" -%}
+      </nav>
+    {% else -%}
+      {%- include contactlist.html class="footer-col footer-col-2" -%}
+    {%- endif %}
 
     <div class="bottom">
 
@@ -54,36 +50,34 @@
       </div> -->
 
       <div class="legal">
-      {%- include sitetitle.html class=false -%}
+      {% include sitetitle.html class=false %}
       {%- assign oldest_post = site.posts reversed | first -%}
       {%- assign oldest = oldest_post.date | date: "%Y" -%}
       {%- assign newest = site.time | date: "%Y" -%}
       &copy;&nbsp;({%- if oldest != newest -%}{{ oldest }}-{%- endif -%}{{ newest }})&nbsp;
-      {%- if site.author and site.author_display -%}
+      {% if site.author and site.author_display -%}
         {{- site.data.academic_strings.legal["en"][3] | strip_html | strip_newlines | xml_escape -}}&nbsp;
         <a target="_blank" href="{{- site.author_website | strip_html | strip_newlines | uri_escape -}}">
           {{- site.author | strip_html | strip_newlines | xml_escape -}}
         </a>
         <br/>
-      {%- endif -%}
-      {%- if site.gnu.shortname and site.gnu.url -%}
+      {%- endif %}
+      {% if site.gnu.shortname and site.gnu.url -%}
         {{- site.data.academic_strings.legal["en"][1] | strip_html | strip_newlines | xml_escape -}}&nbsp;
         <a target="_blank" rel="license" href="{{- site.gnu.url | strip_html | strip_newlines | uri_escape -}}" class="cc-licence">
           {{- site.gnu.shortname | strip_html | strip_newlines | xml_escape -}}
         </a>.
         <br/>
-      {%- endif -%}
-      {%- if site.cc.shortname and site.cc.url -%}
+      {%- endif %}
+      {% if site.cc.shortname and site.cc.url -%}
         {{- site.data.academic_strings.legal["en"][0] | strip_html | strip_newlines | xml_escape -}}&nbsp;
         <a target="_blank" rel="license" href="{{- site.cc.url | strip_html | strip_newlines | uri_escape -}}" class="cc-licence">
           {{- site.cc.shortname | strip_html | strip_newlines | xml_escape -}}
         </a>&nbsp;
         {{- site.data.academic_strings.legal["en"][2] | strip_html | strip_newlines | xml_escape -}}
-      {%- endif -%}
-
+      {%- endif %}
       </div>
     </div>
-
   </div>
 </footer>
 
