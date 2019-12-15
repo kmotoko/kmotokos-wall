@@ -1,7 +1,8 @@
 require 'html-proofer'
 
 task :test do
-    sh "bundle exec jekyll build"
+    sh "bundle exec jekyll doctor"
+    sh "bundle exec jekyll build --strict_front_matter"
     options = {
         :assume_extension => true,
         :check_favicon => true,
