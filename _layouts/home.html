@@ -11,12 +11,12 @@ layout: default
     {%- assign img_svg = img_base | append: '.svg' | strip_html | strip_newlines | uri_escape -%}
     {%- assign img_webp = img_base | append: '.webp' | strip_html | strip_newlines | uri_escape -%}
     {%- assign img_png = img_base | append: '.png' | strip_html | strip_newlines | uri_escape -%}
-    {%- assign author_fullname = site.data.author.name | strip_html | strip_newlines | xml_escape -%}
+    {%- assign site_title = site.title | strip_html | strip_newlines | xml_escape -%}
     ​<picture>
       <source srcset="{{- img_svg | relative_url -}}" type="image/svg+xml">
       <source srcset="{{- img_webp | relative_url -}}" type="image/webp">
       <source srcset="{{- img_png | relative_url -}}" type="image/png">
-      <img src="{{- img_png | relative_url -}}" class="site-logo" alt="{{- author_fullname -}}">
+      <img src="{{- img_png | relative_url -}}" class="site-logo" alt="{{- site_title -}}">
     </picture>
     {%- endif %}
   </div>
