@@ -67,6 +67,9 @@ $content-width:    900px;
 $on-palm:          500px;
 $on-laptop:        700px;
 
+// Width of the images in posts list
+$post-list-thumbnail-width: 35%;
+
 // Minima also includes a mixin for defining media queries.
 // Use media queries like this:
 // @include media-query($on-palm) {
