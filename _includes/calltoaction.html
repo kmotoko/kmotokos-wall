@@ -8,12 +8,12 @@
   {%- endif %}
 
   {{ cta.rss["en"][0] | strip_html | strip_newlines | xml_escape -}}&nbsp;
-  <a href="{{- site.feed.path | strip_html | strip_newlines | uri_escape | relative_url -}}">
+  <a rel="nofollow noreferrer noopener" href="{{- site.feed.path | strip_html | strip_newlines | uri_escape | relative_url -}}">
     {{- cta.rss["en"][1] | strip_html | strip_newlines | xml_escape -}}
   </a>&nbsp;
   {% if site.data.author.twitter_username -%}
     {{ cta.twitter["en"][0] | strip_html | strip_newlines | xml_escape }}&nbsp;
-    <a href="https://twitter.com/{{- site.data.author.twitter_username | strip_html | strip_newlines | uri_escape -}}">
+    <a rel="nofollow noreferrer noopener" href="https://twitter.com/{{- site.data.author.twitter_username | strip_html | strip_newlines | uri_escape -}}">
       @{{- site.data.author.twitter_username | strip_html | strip_newlines | xml_escape -}}
     </a>&nbsp;
     {{ cta.twitter["en"][1] | strip_html | strip_newlines | xml_escape }}

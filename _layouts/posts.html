@@ -72,7 +72,7 @@ layout: default
     {%- assign img_webp = img_base | append: '.webp' | strip_html | strip_newlines | uri_escape -%}
     {%- assign img_png = img_base | append: '.png' | strip_html | strip_newlines | uri_escape -%}
     {%- assign author_fullname = site.data.author.name | strip_html | strip_newlines | xml_escape -%}
-    <a href="{{- site.data.author.author_website | strip_html | strip_newlines | uri_escape -}}">
+    <a rel="nofollow noreferrer noopener" href="{{- site.data.author.author_website | strip_html | strip_newlines | uri_escape -}}">
       ​<picture>
         <source srcset="{{- img_svg | relative_url -}}" type="image/svg+xml">
         <source srcset="{{- img_webp | relative_url -}}" type="image/webp">
