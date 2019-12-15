@@ -10,12 +10,12 @@ layout: default
 
 <div class="{{- div_class | strip_html | strip_newlines -}}">
   <div class="site-logo-wrapper">
-    {% if site.site_logo.base and site.site_logo.name -%}
-    {%- assign img_base = site.site_logo.base | append: site.site_logo.name -%}
+    {% if site.thumbnail.base and site.thumbnail.website_logo.dir and site.thumbnail.website_logo.name -%}
+    {%- assign img_base = site.thumbnail.base | append: site.thumbnail.website_logo.dir | append: site.thumbnail.website_logo.name -%}
     {%- assign img_svg = img_base | append: '.svg' | strip_html | strip_newlines | uri_escape -%}
     {%- assign img_webp = img_base | append: '.webp' | strip_html | strip_newlines | uri_escape -%}
     {%- assign img_png = img_base | append: '.png' | strip_html | strip_newlines | uri_escape -%}
-    {%- assign author_fullname = site.author | strip_html | strip_newlines | xml_escape -%}
+    {%- assign author_fullname = site.data.author.name | strip_html | strip_newlines | xml_escape -%}
     ​<picture>
       <source srcset="{{- img_svg | relative_url -}}" type="image/svg+xml">
       <source srcset="{{- img_webp | relative_url -}}" type="image/webp">

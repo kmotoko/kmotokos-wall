@@ -46,21 +46,21 @@
     {% endif -%}
     {% endif -%}
   ],
-  {% if site.author -%}
+  {% if site.data.author.name -%}
   "author": {
     "@type": "Person",
-    "name": "{{- site.author | strip_html | strip_newlines | xml_escape -}}"
+    "name": "{{- site.data.author.name | strip_html | strip_newlines | xml_escape -}}"
   },
   {% endif -%}
-  {% if site.title and site.baseurl and site.logo.height and site.logo.width -%}
+  {% if site.title and site.baseurl and site.thumbnail.publisher_logo.height and site.thumbnail.publisher_logo.width -%}
   "publisher": {
     "@type": "Organization",
     "name": "{{- site.title | strip_html | strip_newlines | xml_escape -}}",
     "logo": {
       "@type": "ImageObject",
       "url": "{{- site.baseurl | uri_escape | absolute_url -}}",
-      "height": {{ site.logo.height | to_integer -}},
-      "width": {{ site.logo.width | to_integer }}
+      "height": {{ site.thumbnail.publisher_logo.height | to_integer -}},
+      "width": {{ site.thumbnail.publisher_logo.width | to_integer }}
     }
   },
   {% endif -%}

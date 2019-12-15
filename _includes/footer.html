@@ -6,12 +6,12 @@
         {% if site.author_display -%}
         <span class="author">
           {{- site.data.academic_strings.by["en"] | strip_html | strip_newlines | xml_escape -}}&nbsp;
-          {% if site.author_website -%}
-          <a target="_blank" href="{{- site.author_website | strip_html | strip_newlines | uri_escape -}}">
-            {{- site.author | strip_html | strip_newlines | xml_escape -}}
+          {% if site.data.author.author_website -%}
+          <a target="_blank" href="{{- site.data.author.author_website | strip_html | strip_newlines | uri_escape -}}">
+            {{- site.data.author.name | strip_html | strip_newlines | xml_escape -}}
           </a>
           {% else -%}
-          {{- site.author | strip_html | strip_newlines | xml_escape -}}
+          {{- site.data.author.name | strip_html | strip_newlines | xml_escape -}}
           {%- endif %}
         </span>
         {%- endif %}
@@ -41,9 +41,9 @@
         <a target="_blank" href="">
           Academic
         </a>
-        {%- if site.repo -%}
+        {%- if site.data.author.repo -%}
         +
-        <a target="_blank" href="{{- site.repo | strip_html | strip_newlines | uri_escape -}}">
+        <a target="_blank" href="{{- site.data.author.repo | strip_html | strip_newlines | uri_escape -}}">
           Source
         </a>
         {%- endif -%}
@@ -55,10 +55,10 @@
       {%- assign oldest = oldest_post.date | date: "%Y" -%}
       {%- assign newest = site.time | date: "%Y" -%}
       &copy;&nbsp;({%- if oldest != newest -%}{{ oldest }}-{%- endif -%}{{ newest }})&nbsp;
-      {% if site.author and site.author_display -%}
+      {% if site.data.author.name and site.author_display -%}
         {{- site.data.academic_strings.legal["en"][3] | strip_html | strip_newlines | xml_escape -}}&nbsp;
-        <a target="_blank" href="{{- site.author_website | strip_html | strip_newlines | uri_escape -}}">
-          {{- site.author | strip_html | strip_newlines | xml_escape -}}
+        <a target="_blank" href="{{- site.data.author.author_website | strip_html | strip_newlines | uri_escape -}}">
+          {{- site.data.author.name | strip_html | strip_newlines | xml_escape -}}
         </a>
         <br/>
       {%- endif %}

@@ -6,15 +6,15 @@
   {%- if last != created -%}
     <span class="last-update">·
 
-    {% if site.repo -%}
+    {% if site.data.author.repo -%}
     <a title="{{- site.data.academic_strings.revhistory['en'] | strip_html | strip_newlines | xml_escape -}}"
-       href="{{- site.repo | strip_html | strip_newlines | uri_escape -}}/commits/master/{{- object.path | strip_html | strip_newlines | uri_escape -}}">
+       href="{{- site.data.author.repo | strip_html | strip_newlines | uri_escape -}}/commits/master/{{- object.path | strip_html | strip_newlines | uri_escape -}}">
     {%- endif %}
 
     {{ site.data.academic_strings.lastupdated["en"] | strip_html | strip_newlines | xml_escape }}
     {% include date.html date=object.last_modified_at %}
 
-    {% if site.repo -%}
+    {% if site.data.author.repo -%}
     </a>
     {%- endif %}
 

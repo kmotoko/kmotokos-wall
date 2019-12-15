@@ -10,21 +10,21 @@
     {%- include _icons/rss.html -%}
   </li>
 
-  {% if site.github_username -%}
+  {% if site.data.author.github_username -%}
   <li>
-    {%- include _icons/github.html username=site.github_username -%}
+    {%- include _icons/github.html username=site.data.author.github_username -%}
   </li>
   {%- endif %}
 
-  {% if site.twitter_username -%}
+  {% if site.data.author.twitter_username -%}
   <li>
-    {%- include _icons/twitter.html username=site.twitter_username -%}
+    {%- include _icons/twitter.html username=site.data.author.twitter_username -%}
   </li>
   {%- endif %}
 
-  {% if site.linkedin_username -%}
+  {% if site.data.author.linkedin_username -%}
   <li>
-    {%- include _icons/linkedin.html username=site.linkedin_username -%}
+    {%- include _icons/linkedin.html username=site.data.author.linkedin_username -%}
   </li>
   {%- endif %}
 
