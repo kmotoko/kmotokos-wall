@@ -8,6 +8,7 @@ task :test do
         :check_opengraph => true,
         :check_html => true,
         :check_img_http => true,
+        :check_sri => true,
         :enforce_https => true,
         :internal_domains => [
             "kmotoko.com",
@@ -16,6 +17,7 @@ task :test do
          # 999=Request Denied Error, might happen if the server thinks you are a bot
         :http_status_ignore => [999],
         :validation => {
+            :report_missing_doctype => true,
             :report_script_embeds => true,
             :report_missing_names => true,
             :report_invalid_tags => false
