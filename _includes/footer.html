@@ -22,14 +22,7 @@
       {%- endif %}
     </ul>
 
-    {% if site.pitch -%}
-      <nav>
-      {%- include nav_menu.html class="footer-col footer-col-2"%}
-      {%- include contactlist.html class="single-col" -%}
-      </nav>
-    {% else -%}
-      {%- include contactlist.html class="footer-col footer-col-2" -%}
-    {%- endif %}
+    {%- include contactlist.html class="footer-col footer-col-2" -%}
 
     <div class="bottom">
 

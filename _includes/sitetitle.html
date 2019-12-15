@@ -1,9 +1,5 @@
 {% if include.class -%}
-  {%- if site.pitch -%}
-    {%- assign title_class = 'site-title with-pitch' -%}
-  {%- else -%}
-    {%- assign title_class = 'site-title' -%}
-  {%- endif -%}
+  {%- assign title_class = 'site-title' -%}
 {%- else -%}
   {%- assign title_class = '' -%}
 {%- endif %}

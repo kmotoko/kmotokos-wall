@@ -2,11 +2,7 @@
 layout: default
 ---
 
-{%- if site.pitch == false -%}
-  {%- assign div_class = "home" -%}
-{%- else -%}
-  {%- assign div_class = "home pitch" -%}
-{%- endif -%}
+{%- assign div_class = "home" -%}
 
 <div class="{{- div_class | strip_html | strip_newlines -}}">
   <div class="site-logo-wrapper">
@@ -24,11 +20,9 @@ layout: default
     </picture>
     {%- endif %}
   </div>
-  {% unless site.pitch -%}
   <p>
     {{ site.description | strip_html | strip_newlines | xml_escape }}
   </p>
-  {%- endunless %}
 
   {{ content }}
 
