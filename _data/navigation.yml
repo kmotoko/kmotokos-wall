@@ -1,6 +1,9 @@
 - name: "Home"
   link: "/"
   invisible: false
+- name: "About"
+  link: "/about/"
+  invisible: false
 - name: "Articles"
   link: "/articles/"
   invisible: false
