@@ -1,0 +1,10 @@
+{% if page.url and site.title -%}
+<script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+    "name": "{{- site.title | strip_html | strip_newlines | xml_escape -}}",
+    "url": "{{- page.url | replace:'index.html','' | absolute_url -}}"
+  }
+</script>
+{% endif -%}

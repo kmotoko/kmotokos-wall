@@ -87,4 +87,10 @@
   {% if page.layout == "posts" -%}
     {% include _stdata/article.html %}
   {%- endif %}
+  {% if page.layout == "home" -%}
+    {% include _stdata/home.html %}
+  {%- endif %}
+  {% if page.layout == "about" -%}
+    {% include _stdata/author.html %}
+  {%- endif %}
 </head>
