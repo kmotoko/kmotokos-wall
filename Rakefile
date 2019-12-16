@@ -2,7 +2,6 @@ require 'html-proofer'
 
 task :test do
     sh "bundle exec jekyll doctor"
-    sh "bundle exec jekyll build --strict_front_matter"
     options = {
         :assume_extension => true,
         :check_favicon => true,
@@ -33,5 +32,8 @@ task :test do
             :timeout => 30
         }
     }
+    sh "JEKYLL_ENV=development bundle exec jekyll build --strict_front_matter"
+    HTMLProofer.check_directory("./_site", options).run
+    sh "JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter"
     HTMLProofer.check_directory("./_site", options).run
 end
