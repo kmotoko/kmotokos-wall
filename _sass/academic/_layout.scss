@@ -902,6 +902,7 @@
      // Set #text nodes' height (from <picture>) to 0
      font-size: 0px;
      line-height: 0px;
+     margin-bottom: $spacing-unit / 2;
      .site-logo {
        width: 25%;
      }
