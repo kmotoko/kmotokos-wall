@@ -65,7 +65,7 @@
 ],
 {%- endif %}
 {% if site.data.author.stdata.url -%}
-"url": "{{- site.data.author.stdata.url | strip_html | strip_newlines | url_escape -}}",
+"url": "{{- site.data.author.stdata.url | strip_html | strip_newlines | uri_escape -}}",
 {%- endif %}
 {% if site.thumbnail.base and site.data.author.author_image -%}
 {% assign img_base = site.thumbnail.base | append: site.data.author.author_image -%}
