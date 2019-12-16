@@ -216,6 +216,11 @@ pre {
   text-align: left;
   overflow-x: auto;
   @include size(vsmall);
+
+  // rouge adds a table if line numbers are shown
+  table {
+    margin-left: 0px;
+  }
 }
 
 /**
