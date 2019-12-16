@@ -66,29 +66,33 @@ layout: default
 
   {% if site.data.author.shortbio and site.data.author.name -%}
   <div class="post-author">
-    {% if site.data.author.author_image and site.data.author.author_website -%}
-    {%- assign img_base = site.thumbnail.base | append: site.data.author.author_image -%}
-    {%- assign img_svg = img_base | append: '.svg' | strip_html | strip_newlines | uri_escape -%}
-    {%- assign img_webp = img_base | append: '.webp' | strip_html | strip_newlines | uri_escape -%}
-    {%- assign img_png = img_base | append: '.png' | strip_html | strip_newlines | uri_escape -%}
-    {%- assign author_fullname = site.data.author.name | strip_html | strip_newlines | xml_escape -%}
-    <a rel="nofollow noreferrer noopener" href="{{- site.data.author.author_website | strip_html | strip_newlines | uri_escape -}}">
-      ​<picture>
-        <source srcset="{{- img_svg | relative_url -}}" type="image/svg+xml">
-        <source srcset="{{- img_webp | relative_url -}}" type="image/webp">
-        <source srcset="{{- img_png | relative_url -}}" type="image/png">
-        <img src="{{- img_png | relative_url -}}" class="user-picture" alt="{{- author_fullname -}}">
-      </picture>
-    </a>
-    {%- endif %}
-    <ul class="user-info">
-      <li class="user-name">
-        {{ site.data.author.name | strip_html | strip_newlines | xml_escape }}
-      </li>
-      <li class="user-shortbio">
-        {{ site.data.author.shortbio | strip_html | strip_newlines | xml_escape }}
-      </li>
-    </ul>
+    <div class="post-author-box-1">
+      {% if site.data.author.author_image and site.data.author.author_website -%}
+      {%- assign img_base = site.thumbnail.base | append: site.data.author.author_image -%}
+      {%- assign img_svg = img_base | append: '.svg' | strip_html | strip_newlines | uri_escape -%}
+      {%- assign img_webp = img_base | append: '.webp' | strip_html | strip_newlines | uri_escape -%}
+      {%- assign img_png = img_base | append: '.png' | strip_html | strip_newlines | uri_escape -%}
+      {%- assign author_fullname = site.data.author.name | strip_html | strip_newlines | xml_escape -%}
+      <a rel="nofollow noreferrer noopener" href="{{- site.data.author.author_website | strip_html | strip_newlines | uri_escape -}}">
+        ​<picture>
+          <source srcset="{{- img_svg | relative_url -}}" type="image/svg+xml">
+          <source srcset="{{- img_webp | relative_url -}}" type="image/webp">
+          <source srcset="{{- img_png | relative_url -}}" type="image/png">
+          <img src="{{- img_png | relative_url -}}" class="user-picture" alt="{{- author_fullname -}}">
+        </picture>
+      </a>
+      {%- endif %}
+    </div>
+    <div class="post-author-box-2">
+      <ul class="user-info">
+        <li class="user-name">
+          {{ site.data.author.name | strip_html | strip_newlines | xml_escape }}
+        </li>
+        <li class="user-shortbio">
+          {{ site.data.author.shortbio | strip_html | strip_newlines | xml_escape }}
+        </li>
+      </ul>
+    </div>
   </div>
   {%- endif %}
 

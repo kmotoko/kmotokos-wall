@@ -724,20 +724,41 @@
   padding: 5%;
   margin-top: $spacing-unit / 2;
 
-  .user-picture {
+  .post-author-box-1 {
+    display: inline-block;
     float: left;
-    width: 20%;
-    margin-right: 5%;
+    // Set #text nodes' height (from <picture>) to 0
+    font-size: 0px;
+    line-height: 0px;
+    width: $post-author-user-picture-width;
+  }
+
+  .post-author-box-2 {
+    display: inline-block;
+    padding-left: $spacing-unit / 6;
+    width: -webkit-calc(100% - #{($spacing-unit / 6)} - #{$post-author-user-picture-width});
+    width: calc(100% - #{($spacing-unit / 6)} - #{$post-author-user-picture-width});
+  }
+
+  .user-picture {
+    width: 100%;
   }
 
   .user-info {
-    width: 75%;
+    margin-left: $spacing-unit / 4;
+    margin-bottom: $spacing-unit / 4;
     list-style: none;
   }
 
   .user-shortbio {
     color: grey;
   }
+}
+
+.post-author::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .colored-block {

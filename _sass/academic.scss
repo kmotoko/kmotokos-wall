@@ -105,6 +105,8 @@ $on-laptop:        800px !default;
 
 // Width of the images in posts list
 $post-list-thumbnail-width: 35% !default;
+// Width of the author image container under the posts
+$post-author-user-picture-width: 20% !default;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
