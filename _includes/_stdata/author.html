@@ -1,71 +1,78 @@
+{% if site.data.author.name and site.data.author.stdata.sameAs %}
 <script type="application/ld+json">
 {
 "@context": "http://www.schema.org",
 "@type": "Person",
-"@id": "https://www.kmotoko.com/about.html",
-"name": "Cagatay Aydin",
-"alternateName": "Çağatay Aydın",
-"nationality": "Turkey",
+{% if site.data.author.stdata.id -%}
+"@id": "{{- site.data.author.stdata.id | strip_html | strip_newlines | uri_escape -}}",
+{%- endif %}
+"name": "{{- site.data.author.name | strip_html | strip_newlines | xml_escape -}}",
+{% if site.data.author.stdata.alternateName -%}
+"alternateName": "{{- site.data.author.stdata.alternateName | strip_html | strip_newlines | xml_escape -}}",
+{%- endif %}
+{% if site.data.author.stdata.nationality -%}
+"nationality": "{{- site.data.author.stdata.nationality | strip_html | strip_newlines | xml_escape -}}",
+{%- endif %}
+{% if site.data.author.stdata.birthPlace.addressRegion and site.data.author.stdata.birthPlace.addressCountry -%}
 "birthPlace" : {
 	"@type": "Place",
     "address": {
-  		"@type": "PostalAddress",
-		"addressRegion": "Istanbul",
-    "addressCountry": "Turkey"
-	}
+      "@type": "PostalAddress",
+      "addressRegion": "{{- site.data.author.stdata.birthPlace.addressRegion | strip_html | strip_newlines | xml_escape -}}",
+      "addressCountry": "{{- site.data.author.stdata.birthPlace.addressCountry | strip_html | strip_newlines | xml_escape -}}"
+    }
 },
+{%- endif %}
+{% if site.data.author.stdata.affiliation.name and site.data.author.stdata.affiliation.sameAs -%}
 "affiliation": [
 	{
 		"@type": "Organization",
-		"name": "Resardis",
-		"sameAs": [
-			"https://twitter.com/resardis",
-			"https://www.facebook.com/resardis",
-      "https://www.instagram.com/resardis/",
-      "https://www.linkedin.com/company/resardis"
-		]
+		"name": "{{- site.data.author.stdata.affiliation.name | strip_html | strip_newlines | xml_escape -}}",
+		"sameAs": {{ site.data.author.stdata.affiliation.sameAs | strip_html }}
   	}
 ],
+{%- endif %}
+{% if site.data.author.stdata.alumniOf.first -%}
 "alumniOf": [
-	{
+  {%- for entry in site.data.author.stdata.alumniOf %}
+  {
 	 "@type": "CollegeOrUniversity",
-	 "name": "Bogazici University",
-	 "sameAs": [
-     "https://en.wikipedia.org/wiki/Bo%C4%9Fazi%C3%A7i_University",
-     "http://www.boun.edu.tr/"
-   ]
-	},
-	{
-	 "@type": "CollegeOrUniversity",
-	 "name": "Georg-August University of Göttingen",
-   "sameAs": [
-     "https://en.wikipedia.org/wiki/University_of_G%C3%B6ttingen",
-     "https://www.uni-goettingen.de/"
-   ]
-	}
+	 "name": "{{- entry.name | strip_html | strip_newlines | xml_escape -}}",
+	 "sameAs": {{ entry.sameAs | strip_html }}
+  }{%- unless forloop.last -%},{%- endunless %}
+  {%- endfor %}
 ],
-"gender": "Male",
-"Description": "Software Developer",
-"disambiguatingDescription": "Co-founder of Resardis Decentralized Cryptocurrency Exchange",
-"jobTitle": "Co-founder",
+{%- endif %}
+{% if site.data.author.stdata.gender -%}
+"gender": "{{- site.data.author.stdata.gender | strip_html | strip_newlines | xml_escape -}}",
+{%- endif %}
+{% if site.data.author.stdata.Description -%}
+"Description": "{{- site.data.author.stdata.Description | strip_html | strip_newlines | xml_escape -}}",
+{%- endif %}
+{% if site.data.author.stdata.disambiguatingDescription -%}
+"disambiguatingDescription": "{{- site.data.author.stdata.disambiguatingDescription | strip_html | strip_newlines | xml_escape -}}",
+{%- endif %}
+{% if site.data.author.stdata.jobTitle -%}
+"jobTitle": "{{- site.data.author.stdata.jobTitle | strip_html | strip_newlines | xml_escape -}}",
+{%- endif %}
+{% if site.data.author.stdata.worksFor.name and site.data.author.stdata.worksFor.sameAs -%}
 "worksFor": [
   {
   "@type": "Organization",
-  "name": "Resardis",
-  "sameAs": [
-    "https://twitter.com/resardis",
-    "https://www.facebook.com/resardis",
-    "https://www.instagram.com/resardis/",
-    "https://www.linkedin.com/company/resardis"
-  ]
+  "name": "{{- site.data.author.stdata.worksFor.name | strip_html | strip_newlines | xml_escape -}}",
+  "sameAs": {{ site.data.author.stdata.worksFor.sameAs | strip_html }}
   }
 ],
-"url": "https://www.kmotoko.com/about.html",
-// "image": "https://www.kmotoko.com/assets/img/author-image.jpg",
-"sameAs": [
-	"https://twitter.com/kumotoko",
-	"https://github.com/kmotoko",
-	"https://www.linkedin.com/in/aydin-cagatay"
-	]
+{%- endif %}
+{% if site.data.author.stdata.url -%}
+"url": "{{- site.data.author.stdata.url | strip_html | strip_newlines | url_escape -}}",
+{%- endif %}
+{% if site.thumbnail.base and site.data.author.author_image -%}
+{% assign img_base = site.thumbnail.base | append: site.data.author.author_image -%}
+{% assign img_jpg = img_base | append: '.jpg' | strip_html | strip_newlines | uri_escape -%}
+"image": "{{- img_jpg | absolute_url -}}",
+{%- endif %}
+"sameAs": {{ site.data.author.stdata.sameAs | strip_html }}
 }
 </script>
+{%- endif %}

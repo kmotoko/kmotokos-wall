@@ -1,0 +1,52 @@
+name: "Cagatay Aydin"
+github_username:  "kmotoko"
+twitter_username: "kumotoko"
+linkedin_username: "aydin-cagatay"
+author_website: "https://www.kmotoko.com/"
+author_image: "author-image"
+shortbio: "Ex-geneticist, Ex-neuroscientist, currently software developer. Loves Linux and Python."
+repo: "https://github.com/kmotoko/personal-blog" # repo of the website
+stdata:
+  id: "https://www.kmotoko.com/about.html"
+  alternateName: "Çağatay Aydın"
+  nationality: "Turkey"
+  birthPlace:
+    addressRegion: "Istanbul"
+    addressCountry: "Turkey"
+  affiliation:
+    name: "Resardis"
+    sameAs: [
+      "https://twitter.com/resardis",
+      "https://www.facebook.com/resardis",
+      "https://www.instagram.com/resardis/",
+      "https://www.linkedin.com/company/resardis"
+    ]
+  alumniOf:
+    - name: "Boğaziçi University"
+      sameAs: [
+        "https://en.wikipedia.org/wiki/Bo%C4%9Fazi%C3%A7i_University",
+        "http://www.boun.edu.tr/"
+      ]
+    - name: "Georg-August University of Göttingen"
+      sameAs: [
+        "https://en.wikipedia.org/wiki/University_of_G%C3%B6ttingen",
+        "https://www.uni-goettingen.de/"
+      ]
+  gender: "Male"
+  Description: "Software Developer"
+  disambiguatingDescription: "Co-founder of Resardis Decentralized Cryptocurrency Exchange"
+  jobTitle: "Co-founder"
+  worksFor:
+    name: "Resardis"
+    sameAs: [
+      "https://twitter.com/resardis",
+      "https://www.facebook.com/resardis",
+      "https://www.instagram.com/resardis/",
+      "https://www.linkedin.com/company/resardis"
+    ]
+  url: "https://www.kmotoko.com/about.html"
+  sameAs: [
+    "https://twitter.com/kumotoko",
+    "https://github.com/kmotoko",
+    "https://www.linkedin.com/in/aydin-cagatay"
+  ]
