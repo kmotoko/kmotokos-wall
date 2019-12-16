@@ -69,16 +69,14 @@ layout: default
     <div class="post-author-box-1">
       {% if site.data.author.author_image and site.data.author.author_website -%}
       {%- assign img_base = site.thumbnail.base | append: site.data.author.author_image -%}
-      {%- assign img_svg = img_base | append: '.svg' | strip_html | strip_newlines | uri_escape -%}
       {%- assign img_webp = img_base | append: '.webp' | strip_html | strip_newlines | uri_escape -%}
-      {%- assign img_png = img_base | append: '.png' | strip_html | strip_newlines | uri_escape -%}
+      {%- assign img_jpg = img_base | append: '.jpg' | strip_html | strip_newlines | uri_escape -%}
       {%- assign author_fullname = site.data.author.name | strip_html | strip_newlines | xml_escape -%}
       <a rel="nofollow noreferrer noopener" href="{{- site.data.author.author_website | strip_html | strip_newlines | uri_escape -}}">
         ​<picture>
-          <source srcset="{{- img_svg | relative_url -}}" type="image/svg+xml">
           <source srcset="{{- img_webp | relative_url -}}" type="image/webp">
-          <source srcset="{{- img_png | relative_url -}}" type="image/png">
-          <img src="{{- img_png | relative_url -}}" class="user-picture" alt="{{- author_fullname -}}">
+          <source srcset="{{- img_jpg | relative_url -}}" type="image/jpeg">
+          <img src="{{- img_jpg | relative_url -}}" class="user-picture" alt="{{- author_fullname -}}">
         </picture>
       </a>
       {%- endif %}
