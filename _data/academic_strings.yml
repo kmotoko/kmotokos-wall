@@ -6,14 +6,14 @@ dateformat:
 lastupdated:
   en: "last updated on"
 revhistory:
-  en: "See the revision history for this post"
+  en: "See the revision history for this article"
 cta:
   like:
     en: "Do you enjoy the blog?"
   post:
-    en: "Did you like that post?"
+    en: "Did you like that article?"
   rss:
-    en: ["You can suscribe to the", "RSS feed", ""]
+    en: ["You can subscribe to the", "RSS feed"]
   twitter:
     en: ["or follow", "on Twitter"]
 links:
@@ -21,17 +21,22 @@ links:
 by:
   en: "by"
 legal:
-  en: ["by", "is available under the license"]
+  en: [
+  "The content of the website is licensed under",
+  "The code of this software is licensed under",
+  "unless otherwise stated.",
+  "by"
+  ]
 feed:
   en: "RSS feed"
 menu:
   en: "Menu:"
 archive:
-  en: "Welcome to the archives of this blog. Below, you will find all published posts listed in reverse chronological order."
+  en: "Below, you will find all published articles listed in reverse chronological order."
 all_posts:
-  en: ["See", "all published posts"]
+  en: ["See", "all published articles"]
 notfound:
-  en: "I guess this page has moved somewhere else..."
+  en: "Page Not Found"
 versions:
   en: "English version:"
 no_versions:
