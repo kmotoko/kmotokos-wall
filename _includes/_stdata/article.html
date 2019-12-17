@@ -22,9 +22,9 @@
   {% if page.url -%}
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "{{- page.url | replace:'index.html','' | absolute_url -}}"
+    "@id": "{{- page.url | absolute_url -}}"
   },
-  "url": "{{- page.url | replace:'index.html','' | absolute_url -}}",
+  "url": "{{- page.url | absolute_url -}}",
   {% endif -%}
   "headline": "{{- page.title | strip_html | strip_newlines | xml_escape | truncate: 110 | default:'' -}}",
   {% if page.summary -%}
