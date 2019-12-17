@@ -753,6 +753,30 @@
   .user-shortbio {
     color: grey;
   }
+
+  @include media-query($on-palm) {
+    .post-author-box-1 {
+      display: block;
+      float: none;
+      text-align: center;
+      margin-bottom: $spacing-unit / 4;
+      width: 100%;
+    }
+
+    .post-author-box-2 {
+      display: block;
+      padding-left: 0px;
+      width: 100%;
+    }
+
+    .user-picture {
+      width: 50%;
+    }
+
+    .user-info {
+      margin-left: 0px;
+    }
+  }
 }
 
 .post-author::after {
