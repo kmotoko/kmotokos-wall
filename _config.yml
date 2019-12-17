@@ -20,31 +20,89 @@
 
 title: "kmotoko's wall"
 email: "aydincagatay@yandex.com"
-description: >- # this means to ignore newlines until "baseurl:"
-  "Articles about Linux, cyber-security, programming and life."
+# IMPORTANT: Do not use quotes for the value after ">-"
+# Yml parser includes user-entered quotes when ">-" used
+description: >- # ignore newlines until the next key
+  Bits from Linux, Programming and Life.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.kmotoko.com" # the base hostname & protocol for your site, e.g. http://example.com
-# twitter_username: "jekyllrb"
-repo: "websiterepo"
-github_username:  "kmotoko"
-linkedin_username: "aydin-cagatay"
-author: "Cagatay Aydin"
-author_display: true
-author_website: "https://www.kmotoko.com"
-author_image: "kmotoko-avatar"
-shortbio: "stuff about me"
-archive_permalink: "/archive"
+
 langs: ["en"]
+
+author_display: true
+
+favicon:
+  safari: "d33682"
+  msapplication: "ffffff"
+  theme: "ffffff"
+
+thumbnail:
+  base: "/assets/img/"
+  square: "1x1/"
+  square_ext: "_1x1"
+  mid: "4x3/"
+  mid_ext: "_4x3"
+  wide: "16x9/"
+  wide_ext: "_16x9"
+  extra_wide: "2x1/"
+  extra_wide_ext: "_2x1"
+  website_logo:
+    name: "kmotoko-logo"
+    dir: "logo/"
+  publisher_logo:
+    width: 1200
+    height: 1200
+
+# LICENSE INFO
+# Content Licensing: Use Creative Commons
+cc:
+  shortname: "CC-BY-4.0" # Creative Commons Attribution 4.0 International License
+  url: "https://creativecommons.org/licenses/by/4.0/"
+
+# Code licensing: Use GNU v3 licenses
+gnu:
+  shortname: "AGPL-3.0-or-later" # GNU Affero General Public License v3
+  url: "https://www.gnu.org/licenses/agpl-3.0.html"
+
+curriculum:
+  name: false
+  url: false
+
+# Liquid
+# Use strict mode in the future
+liquid:
+  error_mode        : "warn"
+  strict_filters    : false
+  strict_variables  : false
 
 # jekyll-paginate
 paginate: 2
 paginate_path: "/articles/page:num/"
 
+# Jekyll-feed
+feed:
+  path: "/feed.xml"
+
+# SCSS build config
+sass:
+  style: "compressed"
+  line_comments: false
+  sourcemap: "development"
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+      type: "posts" # previously `post` in Jekyll 2.2.
+    values:
+      category: "articles"
+
 # Build settings
 plugins:
   - jekyll-feed
-  - jekyll-data
+  # - jekyll-data
   - jekyll-paginate
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -65,3 +123,7 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+include:
+  - _redirects
+  - _headers
