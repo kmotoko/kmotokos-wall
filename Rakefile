@@ -34,6 +34,4 @@ task :test do
     }
     sh "JEKYLL_ENV=development bundle exec jekyll build --strict_front_matter"
     HTMLProofer.check_directory("./_site", options).run
-    sh "JEKYLL_ENV=production bundle exec jekyll build --strict_front_matter"
-    HTMLProofer.check_directory("./_site", options).run
 end

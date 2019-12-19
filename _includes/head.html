@@ -16,7 +16,13 @@
   <meta name="keywords" content="{{- page.tags | array_to_sentence_string: ',' -}}"/>
   {% endif -%}
 
+  {%- if jekyll.environment == "production" -%}
+  {%- assign timestamp = site.time | date: "%s" -%}
+  <link rel="stylesheet" href="{{- '/assets/main.' | append: timestamp | append: '.css' | strip_html | strip_newlines | uri_escape | relative_url -}}">
+  {% endif -%}
+  {%- if jekyll.environment == "development" -%}
   <link rel="stylesheet" href="{{- '/assets/main.css' | strip_html | strip_newlines | uri_escape | relative_url -}}">
+  {% endif -%}
   <link rel="canonical" href="{{- page.url | replace:'index.html','' | absolute_url -}}">
   <link rel="alternate" type="application/rss+xml" title="{{- site.title | strip_html | strip_newlines | xml_escape -}}" href="{{- site.feed.path | strip_html | strip_newlines | uri_escape | relative_url -}}">
 
