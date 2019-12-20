@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/91c52c3f-9ded-4345-92f9-4681a90fbd36/deploy-status)](https://app.netlify.com/sites/fervent-galileo-78b896/deploys)
+
 # academic
 
 Academic is a [Jekyll](http://jekyllrb.com/) theme with a focus on simplicity, typography and flexibility.
