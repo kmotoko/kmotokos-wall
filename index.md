@@ -1,20 +1,12 @@
 ---
 # Global vars
-layout: about
+layout: home
 title: "Home"
 # Theme specific vars
-summary: false
+summary: "Articles, tutorials and how-to's about Linux and programming, but also bits from life."
+# Thumbnail is only used for opengraph and twitter in the home page
+# Expected to be a jpeg
+thumbnail:
+    name: kmotoko-logo
 ---
-
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
-
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+[Articles]({% link articles/index.html %}) &#8226; [About the Author]({% link about.md %})
