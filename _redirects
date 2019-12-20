@@ -1,0 +1,6 @@
+# Rewrite rule for cache busting for the css
+/assets/main.css id=:id /assets/main.css 200
+
+# These rules will change if you change your site’s custom domains or HTTPS settings
+# Redirect default Netlify subdomain to primary domain
+https://fervent-galileo-78b896.netlify.com/* https://www.kmotoko.com/:splat 301!
