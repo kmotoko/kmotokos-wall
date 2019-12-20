@@ -487,6 +487,7 @@
  */
 .page-content {
   padding: $spacing-unit 0 $spacing-unit / 2 0;
+  width: 100%;
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   -moz-flex: 1 0 auto;
@@ -495,6 +496,7 @@
 
 .post-content {
   padding-bottom: $spacing-unit;
+  width: 100%;
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   -moz-flex: 1 0 auto;
@@ -517,6 +519,7 @@
 
 .archive {
   margin-top: $spacing-unit / 4;
+  width: 100%;
 }
 
 .post-list {
@@ -628,6 +631,10 @@
  * Posts
  */
 
+.post {
+  width: 100%;
+}
+
 .post-header {
   position: relative;
   width: 100%;
@@ -703,6 +710,7 @@
 
 .post-content {
   padding-bottom: $spacing-unit / 2;
+  width: 100%;
   text-align: justify;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
@@ -733,6 +741,7 @@
   @include size(vsmall);
   padding: 5%;
   margin-top: $spacing-unit / 2;
+  width: 100%;
 
   .post-author-box-1 {
     display: inline-block;
@@ -806,6 +815,7 @@
  */
 
 .about-col-wrapper {
+  width: 100%;
   @extend %clearfix;
 }
 
