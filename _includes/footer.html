@@ -47,7 +47,7 @@
       {%- assign oldest_post = site.posts reversed | first -%}
       {%- assign oldest = oldest_post.date | date: "%Y" -%}
       {%- assign newest = site.time | date: "%Y" -%}
-      &copy;&nbsp;({%- if oldest != newest -%}{{ oldest }}-{%- endif -%}{{ newest }})&nbsp;
+      &copy;&nbsp;({%- if oldest != newest and oldest -%}{{ oldest | append: '-' }}{%- endif -%}{{ newest }})&nbsp;
       {% if site.data.author.name and site.author_display -%}
         {{- site.data.academic_strings.legal["en"][3] | strip_html | strip_newlines | xml_escape -}}&nbsp;
         <a rel="nofollow noreferrer noopener" target="_blank" href="{{- site.data.author.author_website | strip_html | strip_newlines | uri_escape -}}">
