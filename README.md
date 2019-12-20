@@ -327,6 +327,70 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/gaalca
 + 0.1.1 [2016-12]: bug fixes (404 page layout, footer, posts list)
 + 0.1.0 [2016-12]: first release of the theme.
 
+## Posts Front Matter Example
+```yaml
+---
+# Global vars
+layout: posts
+title: Welcome to Jekyll
+date: 2019-12-07 01:06:59 +0300
+published: true
+tags: ["blog", "travel"]
+# Theme specific vars
+last_modified_at: 2019-12-07 01:06:59 +0300
+thumbnail:
+    name: my-thumbnail-name
+    webp: false
+    png: false
+summary: "my summary."
+---
+```
+
+## Archive Front Matter Example
+```yaml
+---
+# Global vars
+layout: archive
+title: "Articles"
+# Theme specific vars
+summary: "Articles, tutorials and how-to's about Linux and programming, but also bits from life."
+# Thumbnail is only used for opengraph and twitter in the about page
+# Expected to be a jpeg
+thumbnail:
+    name: kmotoko-logo
+---
+```
+
+## Home Front Matter Example
+```yaml
+---
+# Global vars
+layout: home
+title: "Home"
+# Theme specific vars
+summary: "Articles, tutorials and how-to's about Linux and programming, but also bits from life."
+# Thumbnail is only used for opengraph and twitter in the home page
+# Expected to be a jpeg
+thumbnail:
+    name: kmotoko-logo
+---
+```
+
+## About Front Matter Example
+```yaml
+---
+# Global vars
+layout: about
+title: "About"
+# Theme specific vars
+summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+# Thumbnail is only used for opengraph and twitter in the about page
+# Expected to be a jpeg
+thumbnail:
+    name: kmotoko-logo
+---
+```
+
 ## License
 
 The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
