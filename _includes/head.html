@@ -7,6 +7,10 @@
     {{- page.title | strip_html | strip_newlines | xml_escape | append: " | " | default:"" -}}{{- site.title | strip_html | strip_newlines | xml_escape -}}
   </title>
 
+  {% if page.layout == "pagenotfound" -%}
+  <meta name="robots" content="noindex">
+  {%- endif %}
+
   {% if page.summary -%}
   <meta name="description" content="{{- page.summary | strip_html | strip_newlines | xml_escape | truncate: 160 -}}">
   {% else -%}
