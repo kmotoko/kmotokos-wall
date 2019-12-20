@@ -1,7 +1,16 @@
 /*
-  X-Frame-Options: DENY
-  X-XSS-Protection: 1; mode=block
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
-  Content-Security-Policy: default-src 'none'; style-src 'self'; script-src 'self' https://www.google-analytics.com; img-src 'self' data: https://www.google-analytics.com; font-src 'self'; media-src 'self'; manifest-src 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'self'; connect-src 'self' https://www.google-analytics.com
-  Feature-Policy: microphone 'none'; camera 'none'; payment 'none'; autoplay 'none'; midi 'none'
+    X-Frame-Options: DENY
+    X-XSS-Protection: 1; mode=block
+    X-Content-Type-Options: nosniff
+    Referrer-Policy: strict-origin-when-cross-origin
+    Content-Security-Policy: default-src 'none'; style-src 'self'; script-src 'self' https://www.google-analytics.com; img-src 'self' data: https://www.google-analytics.com; font-src 'self'; media-src 'self'; manifest-src 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'self'; connect-src 'self' https://www.google-analytics.com
+    Feature-Policy: microphone 'none'; camera 'none'; payment 'none'; autoplay 'none'; midi 'none'
+    Cache-Control: public, s-max-age=900, max-age=900
+/assets/favicons/*
+    Cache-Control: public, s-max-age=2160000, max-age=2160000
+/assets/fonts/*
+    Cache-Control: public, s-max-age=2160000, max-age=2160000
+/assets/img/*
+    Cache-Control: public, s-max-age=2160000, max-age=2160000
+/assets/*.css
+    Cache-Control: public, s-max-age=864000, max-age=864000
