@@ -20,6 +20,8 @@
   <meta name="keywords" content="{{- page.tags | array_to_sentence_string: ',' -}}"/>
   {% endif -%}
 
+  <meta name="google-site-verification" content="YjGiobFDX9khsLUpjPbxiJETT55t484em_X2wdyTmBQ" />
+
   {%- if jekyll.environment == "production" -%}
   {%- assign timestamp = site.time | date: "%s" -%}
   <link rel="stylesheet" href="{{- '/assets/main.css' | append: '?id=' | append: timestamp | strip_html | strip_newlines | uri_escape | relative_url -}}">
