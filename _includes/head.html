@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="{{- '/assets/main.css' | strip_html | strip_newlines | uri_escape | relative_url -}}">
   {% endif -%}
   <link rel="canonical" href="{{- page.url | replace:'index.html','' | absolute_url -}}">
-  <link rel="alternate" type="application/rss+xml" title="{{- site.title | strip_html | strip_newlines | xml_escape -}}" href="{{- site.feed.path | strip_html | strip_newlines | uri_escape | relative_url -}}">
+  <link rel="alternate" type="application/atom+xml" title="{{- site.title | strip_html | strip_newlines | xml_escape -}}" href="{{- site.feed.path | strip_html | strip_newlines | uri_escape | relative_url -}}">
 
   {% if site.thumbnail.base -%}
   {%- assign thumb_base = site.thumbnail.base | strip_html | strip_newlines | uri_escape -%}
