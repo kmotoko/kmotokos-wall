@@ -83,6 +83,13 @@ paginate_path: "/articles/page:num/"
 feed:
   path: "/feed.xml"
 
+# jekyll-scholar
+scholar:
+  style: "association-for-computing-machinery"
+  source: "./_bibliography"
+  bibliography: "references.bib"
+  locale: "en"
+
 # SCSS build config
 sass:
   style: "compressed"
@@ -103,6 +110,7 @@ plugins:
   # - jekyll-data
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-scholar
 
 # Exclude from processing.
 # The following items will not be processed, by default.
