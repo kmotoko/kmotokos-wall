@@ -51,9 +51,9 @@ layout: default
     {%- endif %}
     <div>
       {% if page.summary -%}
-      <h3 class="post-summary">
+      <p class="post-summary">
         {{ page.summary | strip_html | strip_newlines | xml_escape }}
-      </h3>
+      </p>
       {%- endif %}
     </div>
   </header>
