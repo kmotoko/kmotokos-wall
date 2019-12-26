@@ -505,6 +505,17 @@
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+  }
+
+  // Added by jekyll-scholar
+  .bibliography {
+    list-style-type: none;
+    text-align: left;
+    font-size: 0.875em;
+  }
 }
 
 .page-heading {
@@ -642,6 +653,20 @@
   margin-bottom: $spacing-unit / 2;
   overflow-y: hidden;
 
+  .post-meta {
+    text-align: left;
+  }
+
+  .post-summary {
+    margin-top: $spacing-unit / 2;
+    margin-bottom: $spacing-unit / 2;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    font-weight: bold;
+  }
+
   @include media-query($on-laptop) {
     .post-meta {
       margin-bottom: $spacing-unit / 6;
@@ -703,11 +728,6 @@
   color: $brand-color;
 }
 
-.post-summary {
-  margin-top: $spacing-unit / 2;
-  margin-bottom: $spacing-unit / 2;
-}
-
 .post-content {
   padding-bottom: $spacing-unit / 2;
   width: 100%;
@@ -715,6 +735,17 @@
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
+
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+  }
+
+  // Added by jekyll-scholar
+  .bibliography {
+    list-style-type: none;
+    text-align: left;
+    font-size: 0.875em;
+  }
 
   .footnotes {
     @include size(small);
