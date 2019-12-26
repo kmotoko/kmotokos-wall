@@ -23,9 +23,6 @@
           {%- if post.thumbnail.webp -%}
           <source srcset="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.webp' | relative_url -}}" type="image/webp"/>
           {%- endif -%}
-          {%- if post.thumbnail.png -%}
-          <source srcset="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.png' | relative_url -}}" type="image/png"/>
-          {%- endif -%}
           <source srcset="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.jpg'| relative_url -}}" type="image/jpeg"/>
           <img src="{{- thumb_base | append: site.thumbnail.mid | append: thumb_mid | append: '.jpg' | relative_url -}}" class="post-thumbnail" alt="{{- thumb_alt -}}"/>
         </picture>
