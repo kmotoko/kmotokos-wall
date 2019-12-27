@@ -33,7 +33,7 @@ stdata:
         "https://www.uni-goettingen.de/"
       ]
   gender: "Male"
-  Description: "Software Developer"
+  description: "Software Developer"
   disambiguatingDescription: "Co-founder of Resardis Decentralized Cryptocurrency Exchange"
   jobTitle: "Co-founder"
   worksFor:

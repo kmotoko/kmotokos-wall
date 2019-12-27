@@ -46,8 +46,8 @@
 {% if site.data.author.stdata.gender -%}
 "gender": "{{- site.data.author.stdata.gender | strip_html | strip_newlines | xml_escape -}}",
 {%- endif %}
-{% if site.data.author.stdata.Description -%}
-"Description": "{{- site.data.author.stdata.Description | strip_html | strip_newlines | xml_escape -}}",
+{% if site.data.author.stdata.description -%}
+"description": "{{- site.data.author.stdata.description | strip_html | strip_newlines | xml_escape -}}",
 {%- endif %}
 {% if site.data.author.stdata.disambiguatingDescription -%}
 "disambiguatingDescription": "{{- site.data.author.stdata.disambiguatingDescription | strip_html | strip_newlines | xml_escape -}}",
