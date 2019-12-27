@@ -5,5 +5,5 @@
   link: "/articles/"
   invisible: false
 - name: "About"
-  link: "/about.html"
+  link: "/about/"
   invisible: false

@@ -26,6 +26,7 @@ description: >- # ignore newlines until the next key
   Bits from Linux, Programming and Life.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.kmotoko.com" # the base hostname & protocol for your site, e.g. http://example.com
+permalink: "/:categories/:title/"
 
 langs: ["en"]
 

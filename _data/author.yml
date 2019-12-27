@@ -7,7 +7,7 @@ author_image: "author-image"
 shortbio: "Ex-geneticist, Ex-neuroscientist, currently a software developer. Loves Linux and Python."
 repo: "https://github.com/kmotoko/personal-blog" # repo of the website
 stdata:
-  id: "https://www.kmotoko.com/about.html"
+  id: "https://www.kmotoko.com/about/"
   alternateName: "Çağatay Aydın"
   nationality: "Turkey"
   birthPlace:
@@ -44,7 +44,7 @@ stdata:
       "https://www.instagram.com/resardis/",
       "https://www.linkedin.com/company/resardis"
     ]
-  url: "https://www.kmotoko.com/about.html"
+  url: "https://www.kmotoko.com/about/"
   sameAs: [
     "https://twitter.com/kumotoko",
     "https://github.com/kmotoko",
