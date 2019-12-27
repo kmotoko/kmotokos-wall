@@ -1,3 +1,6 @@
+# This used to be the old about page
+https://www.kmotoko.com/about.html https://www.kmotoko.com/about/ 301
+
 # Rewrite rule for cache busting for the css
 /assets/main.css id=:id /assets/main.css 200
 
