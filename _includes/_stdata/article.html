@@ -52,17 +52,21 @@
     "name": "{{- site.data.author.name | strip_html | strip_newlines | xml_escape -}}"
   },
   {% endif -%}
-  {% if site.title and site.baseurl and site.thumbnail.publisher_logo.height and site.thumbnail.publisher_logo.width -%}
+  {% if site.title and site.thumbnail.publisher_logo.dir and site.thumbnail.publisher_logo.name -%}
+  {% if site.thumbnail.publisher_logo.height and site.thumbnail.publisher_logo.width -%}
+  {%- assign pub_logo_dir = site.thumbnail.publisher_logo.dir | strip_html | strip_newlines | uri_escape -%}
+  {%- assign pub_logo_name = site.thumbnail.publisher_logo.name | strip_html | strip_newlines | uri_escape -%}
   "publisher": {
     "@type": "Organization",
     "name": "{{- site.title | strip_html | strip_newlines | xml_escape -}}",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{- site.baseurl | uri_escape | absolute_url -}}",
+      "url": "{{- thumb_base | append: pub_logo_dir | append: pub_logo_name | append: '.png' | absolute_url -}}",
       "height": {{ site.thumbnail.publisher_logo.height | to_integer -}},
       "width": {{ site.thumbnail.publisher_logo.width | to_integer }}
     }
   },
+  {% endif -%}
   {% endif -%}
   "datePublished": "{{- page.date | strip_html | strip_newlines | date_to_xmlschema -}}",
   "dateCreated": "{{- page.date | strip_html | strip_newlines | date_to_xmlschema -}}",

@@ -50,8 +50,10 @@ thumbnail:
     name: "kmotoko-logo"
     dir: "logo/"
   publisher_logo:
-    width: 1200
-    height: 1200
+    name: "kmotoko-publisher"
+    dir: "logo/"
+    width: 460
+    height: 60
 
 # LICENSE INFO
 # Content Licensing: Use Creative Commons
