@@ -486,7 +486,7 @@
  * Page content
  */
 .page-content {
-  padding: $spacing-unit 0 $spacing-unit / 2 0;
+  padding: $spacing-unit 0 $spacing-unit 0;
   width: 100%;
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
@@ -770,9 +770,9 @@
 
 .post-author {
   @include size(vsmall);
-  padding: 5%;
   margin-top: $spacing-unit / 2;
-  width: 100%;
+  padding: 5%;
+  width: 90%; // 100 - padding-left - padding-right
 
   .post-author-box-1 {
     display: inline-block;
@@ -820,6 +820,7 @@
     }
 
     .user-picture {
+      margin-bottom: $spacing-unit / 4;
       width: 50%;
     }
 
