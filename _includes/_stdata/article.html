@@ -31,7 +31,7 @@
   "description": "{{- page.summary | strip_html | strip_newlines | xml_escape | truncate: 160 -}}",
   {% endif -%}
   {% if page.tags -%}
-  "keywords": "{{- page.tags | array_to_sentence_string: ',' -}}",
+  "keywords": "{{- page.tags | array_to_sentence_string: '' -}}",
   {% endif -%}
   "image": [
     {% if thumb_base -%}

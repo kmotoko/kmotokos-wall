@@ -17,7 +17,7 @@
   <meta name="description" content="{{- site.description | strip_html | strip_newlines | xml_escape -}}">
   {%- endif %}
   {% if page.tags -%}
-  <meta name="keywords" content="{{- page.tags | array_to_sentence_string: ',' -}}"/>
+  <meta name="keywords" content="{{- page.tags | array_to_sentence_string: '' -}}"/>
   {% endif -%}
 
   <meta name="google-site-verification" content="YjGiobFDX9khsLUpjPbxiJETT55t484em_X2wdyTmBQ" />
