@@ -21,9 +21,9 @@ layout: default
       {%- endif %}
       {% include last_modified_at.html object=page%}
       {% if site.data.author.name -%}
-        &nbsp;•&nbsp;
-        {%- assign sauthor = site.data.author.name | strip_html | strip_newlines | xml_escape -%}
-        <span>{{- sauthor -}}</span>
+      &nbsp;&#8226;&nbsp;
+      {%- assign sauthor = site.data.author.name | strip_html | strip_newlines | xml_escape -%}
+      <span>{{- sauthor -}}</span>
       {%- endif %}
     </p>
     {% if page.thumbnail.name -%}
