@@ -6,7 +6,7 @@ date: 2019-12-27 14:00:00 +0300
 published: true
 tags: ["dnscrypt-proxy", "DNSCrypt", "DNS-over-HTTPS", "DoH", "DNS Security Extensions", "DNSSEC", "security", "hardening", "Linux", "Debian", "Ubuntu"]
 # Theme specific vars
-last_modified_at: 2019-12-27 14:00:00 +0300
+last_modified_at: 2020-01-03 20:00:00 +0300
 thumbnail:
     name: dnscrypt-proxy_doh
     webp: true
@@ -51,6 +51,11 @@ In this case it is listening on `127.0.2.1` and port 53.
 ```bash
 sudo ss -lp 'sport = :domain'
 ```
+Depending on the distro, `systemd-resolved` might be using the same address:port pair. If that is the case, it can be disabled via the following:
+```bash
+sudo systemctl stop systemd-resolved.service
+sudo systemctl disable systemd-resolved.service
+```
 + Edit dnscrypt-proxy configuration in `/etc/dnscrypt-proxy/dnscrypt-proxy.toml` to include:
 ```toml
 dnscrypt_servers = true
@@ -62,6 +67,11 @@ Optionally, if you would like to use only the no-log and no-filter (parental fil
 ```toml
 require_nolog = true
 require_nofilter = true
+```
+If you have a system where IPv6 is disabled and/or your ISP does not provide IPv6 connectivity, you might want to disable it also in `dnscrypt-proxy`. This would result in immediate `refused` responses, therefore you might realize faster connections.
+```toml
+block_ipv6 = true
+ipv6_servers = false
 ```
 + Backup the existing `resolv.conf` file:
 ```bash
