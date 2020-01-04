@@ -216,6 +216,12 @@ pre {
   }
 }
 
+pre.highlight,
+figure.highlight,
+code.highlighter-rouge {
+  background-color: $grey-color-lighter;
+}
+
 /**
  * Table
  */
