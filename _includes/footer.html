@@ -6,8 +6,8 @@
         {% if site.author_display -%}
         <span class="author">
           {{- site.data.academic_strings.by["en"] | strip_html | strip_newlines | xml_escape -}}&nbsp;
-          {% if site.data.author.author_website -%}
-          <a rel="nofollow noreferrer noopener" target="_blank" href="{{- site.data.author.author_website | strip_html | strip_newlines | uri_escape -}}">
+          {% if site.data.author.author_about -%}
+          <a rel="nofollow noreferrer noopener" target="_blank" href="{{- site.data.author.author_about | strip_html | strip_newlines | uri_escape -}}">
             {{- site.data.author.name | strip_html | strip_newlines | xml_escape -}}
           </a>
           {% else -%}
@@ -26,21 +26,12 @@
 
     <div class="bottom">
 
-      <!-- <div class="tech">
-        <a rel="nofollow noreferrer noopener" target="_blank" href="">
+      <div class="tech">
+        Made with &#9829; using
+        <a rel="nofollow noreferrer noopener" target="_blank" href="https://jekyllrb.com/">
           Jekyll
         </a>
-        +
-        <a rel="nofollow noreferrer noopener" target="_blank" href="">
-          Academic
-        </a>
-        {%- if site.data.author.repo -%}
-        +
-        <a rel="nofollow noreferrer noopener" target="_blank" href="{{- site.data.author.repo | strip_html | strip_newlines | uri_escape -}}">
-          Source
-        </a>
-        {%- endif -%}
-      </div> -->
+      </div>
 
       <div class="legal">
       {% include sitetitle.html class=false %}
@@ -50,7 +41,7 @@
       &copy;&nbsp;({%- if oldest != newest and oldest -%}{{ oldest | append: '-' }}{%- endif -%}{{ newest }})&nbsp;
       {% if site.data.author.name and site.author_display -%}
         {{- site.data.academic_strings.legal["en"][3] | strip_html | strip_newlines | xml_escape -}}&nbsp;
-        <a rel="nofollow noreferrer noopener" target="_blank" href="{{- site.data.author.author_website | strip_html | strip_newlines | uri_escape -}}">
+        <a rel="nofollow noreferrer noopener" target="_blank" href="{{- site.data.author.author_about | strip_html | strip_newlines | uri_escape -}}">
           {{- site.data.author.name | strip_html | strip_newlines | xml_escape -}}
         </a>
         <br/>

@@ -62,12 +62,12 @@ layout: default
   {% if site.data.author.shortbio and site.data.author.name -%}
   <div class="post-author">
     <div class="post-author-box-1">
-      {% if site.data.author.author_image and site.data.author.author_website -%}
+      {% if site.data.author.author_image and site.data.author.author_about -%}
       {%- assign img_base = site.thumbnail.base | append: site.data.author.author_image -%}
       {%- assign img_webp = img_base | append: '.webp' | strip_html | strip_newlines | uri_escape -%}
       {%- assign img_jpg = img_base | append: '.jpg' | strip_html | strip_newlines | uri_escape -%}
       {%- assign author_fullname = site.data.author.name | strip_html | strip_newlines | xml_escape -%}
-      <a rel="nofollow noreferrer noopener" href="{{- site.data.author.author_website | strip_html | strip_newlines | uri_escape -}}">
+      <a rel="nofollow noreferrer noopener" href="{{- site.data.author.author_about | strip_html | strip_newlines | uri_escape -}}">
         ​<picture>
           <source srcset="{{- img_webp | relative_url -}}" type="image/webp">
           <source srcset="{{- img_jpg | relative_url -}}" type="image/jpeg">
