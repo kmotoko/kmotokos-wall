@@ -6,7 +6,7 @@ author_website: "https://www.kmotoko.com/"
 author_about: "https://www.kmotoko.com/about/"
 author_image: "author-image"
 shortbio: "Ex-geneticist, Ex-neuroscientist, currently a software developer. Loves Linux and Python."
-repo: "https://github.com/kmotoko/personal-blog" # repo of the website
+repo: "https://github.com/kmotoko/kmotokos-wall" # repo of the website
 stdata:
   id: "https://www.kmotoko.com/about/"
   alternateName: "Çağatay Aydın"
