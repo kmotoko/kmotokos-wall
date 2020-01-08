@@ -19,7 +19,6 @@ layout: default
         {%- include date.html date=page.date -%}
       </time>
       {%- endif %}
-      {% include last_modified_at.html object=page%}
       {% if site.data.author.name -%}
       &nbsp;&#8226;&nbsp;
       {%- assign sauthor = site.data.author.name | strip_html | strip_newlines | xml_escape -%}
@@ -57,6 +56,8 @@ layout: default
     {{ content }}
   </div>
 
+  {% include last_modified_at.html object=page%}
+  <br/>
   {% include calltoaction.html %}
 
   {% if site.data.author.shortbio and site.data.author.name -%}
