@@ -24,6 +24,34 @@
   <meta name="yandex-verification" content="3614aa89bf03b095" />
   <meta name="msvalidate.01" content="34D1F939C5C8AA91CA43C912E87F84E1" />
 
+  {%- capture favicons -%}
+  {%- for file in site.static_files -%}
+  {%- if file.path contains "apple-touch-icon.png" %}
+  <link rel="apple-touch-icon" sizes="180x180" href="{{- '/apple-touch-icon.png' | strip_html | strip_newlines | uri_escape | absolute_url -}}"/>
+  {% endif -%}
+  {%- if file.path contains "favicon-96x96.png" %}
+  <link rel="icon" type="image/png" sizes="96x96" href="{{- '/favicon-96x96.png' | strip_html | strip_newlines | uri_escape | absolute_url -}}"/>
+  {% endif -%}
+  {%- if file.path contains "favicon-32x32.png" %}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{- '/favicon-32x32.png' | strip_html | strip_newlines | uri_escape | absolute_url -}}"/>
+  {% endif -%}
+  {%- if file.path contains "favicon-16x16.png" %}
+  <link rel="icon" type="image/png" sizes="16x16" href="{{- '/favicon-16x16.png' | strip_html | strip_newlines | uri_escape | absolute_url -}}"/>
+  {% endif -%}
+  {%- if file.path contains "site.webmanifest" %}
+  <link rel="manifest" href="{{- '/site.webmanifest' | strip_html | strip_newlines | uri_escape | absolute_url -}}"/>
+  {% endif -%}
+  {%- if file.path contains "safari-pinned-tab.svg" %}
+  <link rel="mask-icon" href="{{- '/safari-pinned-tab.svg' | strip_html | strip_newlines | uri_escape | absolute_url -}}" color="#{{- site.favicon.safari | strip_html | strip_newlines | xml_escape | default:'ffffff' -}}"/>
+  {% endif -%}
+  {%- if file.path contains "favicon.ico" -%}
+  <link rel="shortcut icon" type="image/x-icon" href="{{- '/favicon.ico' | strip_html | strip_newlines | uri_escape | absolute_url -}}"/>
+  {%- endif -%}
+  {%- endfor -%}
+  {%- endcapture -%}
+
+  {{ favicons }}
+
   {%- if jekyll.environment == "production" -%}
   {%- assign timestamp = site.time | date: "%s" -%}
   <link rel="stylesheet" href="{{- '/assets/main.css' | append: '?id=' | append: timestamp | strip_html | strip_newlines | uri_escape | relative_url -}}">
@@ -66,34 +94,6 @@
   {% if thumb_base and site.thumbnail.extra_wide and thumb_extra_wide -%}
   <meta name="twitter:image" content="{{- thumb_base | append: site.thumbnail.extra_wide | append: thumb_extra_wide | append: '.jpg'| absolute_url -}}"/>
   {% endif -%}
-
-  {%- capture favicons -%}
-  {%- for file in site.static_files -%}
-  {%- if file.path contains "apple-touch-icon.png" %}
-  <link rel="apple-touch-icon" sizes="180x180" href="{{- '/apple-touch-icon.png' | strip_html | strip_newlines | uri_escape | relative_url -}}"/>
-  {% endif -%}
-  {%- if file.path contains "favicon-96x96.png" %}
-  <link rel="icon" type="image/png" sizes="96x96" href="{{- '/favicon-96x96.png' | strip_html | strip_newlines | uri_escape | relative_url -}}"/>
-  {% endif -%}
-  {%- if file.path contains "favicon-32x32.png" %}
-  <link rel="icon" type="image/png" sizes="32x32" href="{{- '/favicon-32x32.png' | strip_html | strip_newlines | uri_escape | relative_url -}}"/>
-  {% endif -%}
-  {%- if file.path contains "favicon-16x16.png" %}
-  <link rel="icon" type="image/png" sizes="16x16" href="{{- '/favicon-16x16.png' | strip_html | strip_newlines | uri_escape | relative_url -}}"/>
-  {% endif -%}
-  {%- if file.path contains "site.webmanifest" %}
-  <link rel="manifest" href="{{- '/site.webmanifest' | strip_html | strip_newlines | uri_escape | relative_url -}}"/>
-  {% endif -%}
-  {%- if file.path contains "safari-pinned-tab.svg" %}
-  <link rel="mask-icon" href="{{- '/safari-pinned-tab.svg' | strip_html | strip_newlines | uri_escape | relative_url -}}" color="#{{- site.favicon.safari | strip_html | strip_newlines | xml_escape | default:'ffffff' -}}"/>
-  {% endif -%}
-  {%- if file.path contains "favicon.ico" -%}
-  <link rel="shortcut icon" type="image/x-icon" href="{{- '/favicon.ico' | strip_html | strip_newlines | uri_escape | relative_url -}}"/>
-  {%- endif -%}
-  {%- endfor -%}
-  {%- endcapture -%}
-
-  {{ favicons }}
 
   {% if site.title -%}
   <meta name="apple-mobile-web-app-title" content="{{- site.title | strip_html | strip_newlines | xml_escape -}}"/>
