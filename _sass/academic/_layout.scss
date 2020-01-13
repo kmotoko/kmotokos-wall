@@ -515,6 +515,10 @@
     list-style-type: none;
     text-align: left;
     font-size: 0.875em;
+    span {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
   }
 }
 
@@ -745,6 +749,10 @@
     list-style-type: none;
     text-align: left;
     font-size: 0.875em;
+    span {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
   }
 
   .footnotes {
