@@ -1,3 +1,10 @@
+{% if page.layout == "posts" -%}
+<div class="social-share">
+  <h2>{{- site.data.academic_strings.cta.share["en"] | strip_html | strip_newlines | xml_escape -}}</h2>
+  {% include _icons/twitter_share.html -%}
+  {%- include _icons/reddit_share.html -%}
+</div>
+{%- endif %}
 <div class="colored-block">
   {%- assign cta = site.data.academic_strings.cta -%}
   {% if page.layout == "home" or page.layout == "archive" -%}

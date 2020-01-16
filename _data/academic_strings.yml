@@ -16,6 +16,8 @@ cta:
     en: ["You can subscribe to the", "RSS feed"]
   twitter:
     en: ["or follow", "on Twitter"]
+  share:
+    en: "Share on"
 links:
   en: "Links :"
 by:
