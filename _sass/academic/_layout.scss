@@ -333,6 +333,7 @@
     width: -webkit-calc(35% - (#{$spacing-unit} / 2));
     width:         calc(35% - (#{$spacing-unit} / 2));
     float: right;
+    text-align: right;
   }
 
   .single-col {
