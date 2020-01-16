@@ -1,0 +1,13 @@
+{%- if site.data.author.twitter_username -%}
+<a rel="nofollow noreferrer noopener" target="_blank" href="https://twitter.com/intent/tweet?url={{- page.url | replace:'index.html','' | absolute_url -}}&via={{- site.data.author.twitter_username | strip_html | strip_newlines | uri_escape -}}&text={{- page.title | strip_html | strip_newlines | uri_escape -}}" title="Twitter">
+  <span class="icon icon--twitter">
+    {%- include _icons/twitter_share.svg -%}
+  </span>
+</a>
+{%- else -%}
+<a rel="nofollow noreferrer noopener" target="_blank" href="https://twitter.com/intent/tweet?url={{- page.url | replace:'index.html','' | absolute_url -}}&text={{- page.title | strip_html | strip_newlines | uri_escape -}}" title="Twitter">
+  <span class="icon icon--twitter">
+    {%- include _icons/twitter_share.svg -%}
+  </span>
+</a>
+{%- endif %}
