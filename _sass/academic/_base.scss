@@ -125,25 +125,17 @@ h1,h2,h3,h4,h5,h6 {
   -ms-font-feature-settings: "kern", "liga", "clig", "alt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  font-family: $alt-font-family;
+  font-weight: $alt-font-weight;
 }
 
 h1,h2 {
   letter-spacing: -1px;
-  font-family: $alt-font-family;
   @include size(h1);
-  font-weight: $alt-font-weight;
 }
 
 h2 {
   @include size(h2);
-}
-
-h3 {
-  font-family: $base-font-family;
-}
-
-h3, h4{
-  font-weight: normal;
 }
 
 h3 {
@@ -153,8 +145,6 @@ h3 {
 h4 {
   @include size(h4);
 }
-
-
 
 /**
  * Links
