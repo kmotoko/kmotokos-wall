@@ -6,7 +6,7 @@ date: 2020-01-12 12:00:00 +0300
 published: true
 tags: ["sysctl", "kernel", "security", "Exec Shield", "YAMA", "BPF-JIT", "ARP", "BOOTP", "hardening", "Linux"]
 # Theme specific vars
-last_modified_at: 2020-01-12 12:00:00 +0300
+last_modified_at: 2020-03-24 10:00:00 +0300
 thumbnail:
     name: "linux_kernel_hardening_sysctl"
     webp: true
@@ -64,9 +64,25 @@ sudo sysctl kernel.dmesg_restrict=1
 ```
 Source {% cite Security_ArchWiki --file web %}.
 
+## Protect links on the filesystem
+Hardlinks and symbolic links should not be created by users who do not have the read/write permissions to the source file or if they do not own it:
+```bash
+sudo sysctl fs.protected_hardlinks = 1
+sudo sysctl fs.protected_symlinks = 1
+```
+Source {% cite Security_ArchWiki --file web %}.
+
 ## Network stack hardening
-### Harden BPF Just-in-Time (JIT) compiler
-Before the famous Spectre vulnerability, it was a recommended practice to disable BPF Just-in-Time (JIT) compiler. Newer kernels set BPF JIT compiler to always ON, as recommended against Spectre-like vulnerabilities. In addition, Linux kernel has a parameter to harden BPF JIT compiler:
+### Harden BPF and BPF Just-in-Time (JIT) compiler
+Running code in the kernel through Berkeley Packet Filter (BPF) should be disabled for unprivileged users:
+```bash
+sudo sysctl kernel.unprivileged_bpf_disabled = 1
+```
+Before the famous Spectre vulnerability, it was a recommended practice to disable BPF Just-in-Time (JIT) compiler. Newer kernels set BPF JIT compiler to always ON, as recommended against Spectre-like vulnerabilities. If your kernel/distro is not using it, you can enable it via:
+```bash
+sudo sysctl net.core.bpf_jit_enable = 1
+```
+In addition, Linux kernel has a parameter to harden BPF JIT compiler:
 ```bash
 sudo sysctl net.core.bpf_jit_harden=1
 ```
@@ -115,6 +131,12 @@ sudo sysctl net.ipv4.conf.all.arp_announce=2
 Sources {% cite AddressResolutionProtocol_Wikipedia Sysctl_ArchWiki LinuxKernelDocumentation-Networking_LinuxKernelOrganization --file web %}.
 
 ### Other network hardening
++ Disable logging martian packets: Martian packets have reserved IP addresses in their source or destination, making them unroutable in the public-facing network interfaces. Malicious actors can use it to cause Denial of Service (DOS) by filling up the logs of the target machine. One can disable it using:
+```bash
+sudo sysctl net.ipv4.conf.default.log_martians = 0
+sudo sysctl net.ipv4.conf.all.log_martians = 0
+```
+
 + Disable packet forwarding. If you are not doing packet forwarding, you can disable it in the kernel via:
 ```bash
 sudo sysctl net.ipv4.ip_forward=0
@@ -198,6 +220,10 @@ kernel.dmesg_restrict = 1
 # Restrict ptrace scope
 kernel.yama.ptrace_scope = 1
 
+# Protect links on the filesystem
+fs.protected_hardlinks = 1
+fs.protected_symlinks = 1
+
 ###
 ### Deprecated/Not-in-use keys for security
 ###
@@ -213,6 +239,10 @@ kernel.yama.ptrace_scope = 1
 ### NETWORK SECURITY ###
 ###
 
+# Do not allow unprivileged users to run code in the kernel through BPF
+kernel.unprivileged_bpf_disabled = 1
+# Enable JIT compiler against SPECTRE variants
+net.core.bpf_jit_enable = 1
 # Harden BPF JIT compiler
 net.core.bpf_jit_harden = 1
 
@@ -262,6 +292,11 @@ net.ipv4.conf.all.arp_announce = 2
 
 # Mitigate time-wait assassination hazards in TCP
 net.ipv4.tcp_rfc1337 = 1
+
+# Disable logging martian packages
+# Otherwise it might cause DOS
+net.ipv4.conf.default.log_martians = 0
+net.ipv4.conf.all.log_martians = 0
 
 # Enable bad error message Protection
 net.ipv4.icmp_ignore_bogus_error_responses = 1
